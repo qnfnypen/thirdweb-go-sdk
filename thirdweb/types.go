@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/qnfnypen/thirdweb-go-sdk/v2/abi"
 )
 
 type SDKOptions struct {
@@ -466,6 +466,18 @@ func (metadata *DeployMarketplaceMetadata) fillDefaults() {
 		metadata.PlatformFeeRecipient = "0x0000000000000000000000000000000000000000"
 	}
 
+	if metadata.TrustedForwarders == nil {
+		metadata.TrustedForwarders = []string{}
+	}
+}
+
+type DeploySplitMetadata struct {
+	TrustedForwarders []string `mapstructure:"trusted_forwarders" json:"trusted_forwarders"`
+	Payees            []string `mapstructure:"payees" json:"payees"`
+	Shares            []int64  `mapstructure:"shares" json:"shares"`
+}
+
+func (metadata *DeploySplitMetadata) fillDefaults() {
 	if metadata.TrustedForwarders == nil {
 		metadata.TrustedForwarders = []string{}
 	}

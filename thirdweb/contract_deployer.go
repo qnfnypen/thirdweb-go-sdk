@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/mitchellh/mapstructure"
 
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/qnfnypen/thirdweb-go-sdk/v2/abi"
 
 	gethAbi "github.com/ethereum/go-ethereum/accounts/abi"
 )
@@ -20,7 +20,7 @@ import (
 // just the thirdweb SDK. You can access the contract deployer interface as follows:
 //
 //	import (
-//		"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
+//		"github.com/qnfnypen/thirdweb-go-sdk/v2/thirdweb"
 //	)
 //
 //	privateKey = "..."
@@ -52,8 +52,7 @@ func newContractDeployer(provider *ethclient.Client, privateKey string, storage 
 	if err != nil {
 		return nil, err
 	}
-	
-	
+
 	factoryAddress, err := getContractAddressByChainId(ChainID(chainId.Int64()), "TWFactory")
 	if err == nil {
 		factory, err := abi.NewTWFactory(common.HexToAddress(factoryAddress), provider)
@@ -212,6 +211,16 @@ func (deployer *ContractDeployer) DeployMarketplace(ctx context.Context, metadat
 	return deployer.deployContract(ctx, "marketplace", metadata)
 }
 
+// Deploy a new Split contract.
+//
+// metadata: the contract metadata
+//
+// returns: the address of the deployed contract
+func (deployer *ContractDeployer) DeploySplit(ctx context.Context, metadata *DeploySplitMetadata) (string, error) {
+	metadata.fillDefaults()
+	return deployer.deployContract(ctx, "split", metadata)
+}
+
 func (deployer *ContractDeployer) deployContract(ctx context.Context, contractType string, metadata interface{}) (string, error) {
 	metadataToUpload := map[string]interface{}{}
 	err := mapstructure.Decode(metadata, &metadataToUpload)
@@ -305,6 +314,8 @@ func (deployer *ContractDeployer) getEncodedType(contractType string) ([32]byte,
 		remoteName = "Multiwrap"
 	case "marketplace":
 		remoteName = "Marketplace"
+	case "split":
+		remoteName = "Split"
 	default:
 		return [32]byte{}, fmt.Errorf("Unsupported contract type: %s", contractType)
 	}
@@ -439,6 +450,28 @@ func (deployer *ContractDeployer) getDeployArguments(contractType string, metada
 			common.HexToAddress(meta.PlatformFeeRecipient),
 			big.NewInt(int64(meta.PlatformFeeBasisPoints)),
 		}, nil
+	case "split":
+		var (
+			payees []common.Address
+			shares []*big.Int
+		)
+		meta, ok := metadata.(*DeploySplitMetadata)
+		if !ok {
+			return nil, err
+		}
+
+		for i := 0; i < len(meta.Payees); i++ {
+			payees = append(payees, common.HexToAddress(meta.Payees[i]))
+			shares = append(shares, big.NewInt(meta.Shares[i]))
+		}
+
+		return []interface{}{
+			deployer.GetSignerAddress(),
+			contractUri,
+			trustedForwarders,
+			payees,
+			shares,
+		}, nil
 	default:
 		return nil, fmt.Errorf("Unsupported contract type: %s", contractType)
 	}
@@ -485,6 +518,8 @@ func (deployer *ContractDeployer) getContractAbiByContractType(contractType stri
 		contractAbi = abi.MultiwrapABI
 	case "marketplace":
 		contractAbi = abi.MarketplaceABI
+	case "split":
+		contractAbi = abi.SplitABI
 	default:
 		return nil, fmt.Errorf("Unsupported contract type: %s", contractType)
 	}

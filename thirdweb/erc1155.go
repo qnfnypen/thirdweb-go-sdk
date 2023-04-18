@@ -12,16 +12,16 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/mitchellh/mapstructure"
 
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/qnfnypen/thirdweb-go-sdk/v2/abi"
 )
 
 // This interface is currently support by the Edition and Edition Drop contracts.
 // You can access all of its functions through an Edition or Edition Drop contract instance.
 type ERC1155 struct {
-	token     *abi.TokenERC1155
-	drop      *abi.DropERC1155
-	helper    *contractHelper
-	storage   storage
+	token           *abi.TokenERC1155
+	drop            *abi.DropERC1155
+	helper          *contractHelper
+	storage         storage
 	ClaimConditions *EditionDropClaimConditions
 }
 
@@ -34,23 +34,23 @@ func newERC1155(provider *ethclient.Client, address common.Address, privateKey s
 	token, err := abi.NewTokenERC1155(address, provider)
 	if err != nil {
 		return nil, err
-	} 
+	}
 
 	drop, err := abi.NewDropERC1155(address, provider)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	helper, err := newContractHelper(address, provider, privateKey)
 	if err != nil {
 		return nil, err
-	} 
+	}
 
 	claimConditions, err := newEditionDropClaimConditions(address, provider, helper, storage)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	return &ERC1155{
 		token,
 		drop,
@@ -58,7 +58,7 @@ func newERC1155(provider *ethclient.Client, address common.Address, privateKey s
 		storage,
 		claimConditions,
 	}, nil
-	
+
 }
 
 // Get an NFT
@@ -814,7 +814,6 @@ func (erc1155 *ERC1155) prepareClaim(ctx context.Context, tokenId int, quantity 
 
 	return claimVerification, nil
 }
-
 
 func (erc1155 *ERC1155) getTokenMetadata(ctx context.Context, tokenId int) (*NFTMetadata, error) {
 	if uri, err := erc1155.token.Uri(

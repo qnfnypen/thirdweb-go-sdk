@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
 
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/qnfnypen/thirdweb-go-sdk/v2/abi"
 )
 
 // This interface is currently support by the Token contract. You can access
@@ -367,7 +367,6 @@ func (erc20 *ERC20) BurnFrom(ctx context.Context, holder string, amount float64)
 
 	return erc20.helper.AwaitTx(ctx, tx.Hash())
 }
-
 
 // Mint tokens
 //

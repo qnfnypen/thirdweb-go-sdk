@@ -14,16 +14,16 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/mitchellh/mapstructure"
 
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/qnfnypen/thirdweb-go-sdk/v2/abi"
 )
 
 // This interface is currently support by the NFT Collection and NFT Drop contracts.
 // You can access all of its functions through an NFT Collection or NFT Drop contract instance.
 type ERC721 struct {
-	token   		*abi.TokenERC721
-	drop    		*abi.DropERC721
-	helper  		*contractHelper
-	storage 		storage
+	token           *abi.TokenERC721
+	drop            *abi.DropERC721
+	helper          *contractHelper
+	storage         storage
 	ClaimConditions *NFTDropClaimConditions
 }
 
@@ -42,7 +42,7 @@ func newERC721(provider *ethclient.Client, address common.Address, privateKey st
 	if err != nil {
 		return nil, err
 	}
-	
+
 	helper, err := newContractHelper(address, provider, privateKey)
 	if err != nil {
 		return nil, err
@@ -600,7 +600,6 @@ func (erc721 *ERC721) SetApprovalForToken(ctx context.Context, operator string, 
 	}
 }
 
-
 // Mint an NFT
 //
 // @extension: ERC721Mintable
@@ -982,7 +981,6 @@ func (erc721 *ERC721) fetchNFTsByTokenId(ctx context.Context, tokenIds []*big.In
 	})
 	return nfts, nil
 }
-
 
 func (erc721 *ERC721) prepareClaim(ctx context.Context, addressToClaim string, quantity int, handleApproval bool) (*ClaimVerification, error) {
 	active, err := erc721.ClaimConditions.GetActive(ctx)

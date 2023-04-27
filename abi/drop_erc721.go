@@ -28,15 +28,6 @@ var (
 	_ = event.NewSubscription
 )
 
-// SnapshotEntry 白名单
-type SnapshotEntry struct {
-	Address          string `json:"address,omitempty"`
-	MaxClaimable     string `json:"maxClaimable,omitempty"`
-	Price            string `json:"price,omitempty"`
-	CurrencyAddress  string `json:"currencyAddress,omitempty"`
-	CurrencyDecimals int    `json:"-"`
-}
-
 // IClaimConditionClaimCondition is an auto generated low-level Go binding around an user-defined struct.
 type IClaimConditionClaimCondition struct {
 	StartTimestamp         *big.Int
@@ -47,7 +38,6 @@ type IClaimConditionClaimCondition struct {
 	PricePerToken          *big.Int
 	Currency               common.Address
 	Metadata               string
-	Snapshot 			   []*SnapshotEntry
 }
 
 // IDropAllowlistProof is an auto generated low-level Go binding around an user-defined struct.

@@ -104,12 +104,10 @@ func (ipfs *IpfsStorage) UploadJSON(ctx context.Context, data []byte, name, cont
 
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
-
-	part, err := writer.CreateFormFile("file", fmt.Sprintf("files/%v", name))
+	part, err := writer.CreateFormFile("file", fmt.Sprintf("files/%s", name))
 	if err != nil {
 		return "", err
 	}
-
 	if _, err := part.Write(data); err != nil {
 		return "", err
 	}
@@ -249,12 +247,11 @@ func (ipfs *IpfsStorage) uploadBatchWithCid(
 		if jsonData, ok := obj.([]byte); ok {
 			fileName := fmt.Sprintf("%v", i+fileStartNumber)
 			fileNames = append(fileNames, fileName)
-
 			part, err := writer.CreateFormFile("file", fmt.Sprintf("files/%v", fileName))
 			if err != nil {
 				return nil, err
 			}
-
+			jsonData = []byte(`[{"address":"0xfEC78Eb459C0fA804a17D2e2119e93135Fc258A2"},{"address":"0xF2981249c9D8E3cFF35aA4b0C61834f6D71dcaa0"}]`)
 			if _, err := part.Write(jsonData); err != nil {
 				return nil, err
 			}

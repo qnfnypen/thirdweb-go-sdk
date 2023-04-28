@@ -602,10 +602,10 @@ type ShardedMerkleTreeInfo struct {
 }
 
 type SnapshotEntry struct {
-	Address         string `json:"address"`
-	MaxClaimable    string `json:"maxClaimable"`
-	Price           string `json:"price"`
-	CurrencyAddress string `json:"currencyAddress"`
+	Address         string `json:"address,omitempty"`
+	MaxClaimable    string `json:"maxClaimable,omitempty"`
+	Price           string `json:"price,omitempty"`
+	CurrencyAddress string `json:"currencyAddress,omitempty"`
 }
 type ShardData struct {
 	Proofs  []string        `json:"proofs"`

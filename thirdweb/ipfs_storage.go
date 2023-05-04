@@ -251,7 +251,6 @@ func (ipfs *IpfsStorage) uploadBatchWithCid(
 			if err != nil {
 				return nil, err
 			}
-			jsonData = []byte(`[{"address":"0xfEC78Eb459C0fA804a17D2e2119e93135Fc258A2"},{"address":"0xF2981249c9D8E3cFF35aA4b0C61834f6D71dcaa0"}]`)
 			if _, err := part.Write(jsonData); err != nil {
 				return nil, err
 			}

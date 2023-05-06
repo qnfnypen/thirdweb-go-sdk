@@ -360,7 +360,7 @@ func (deployer *ContractDeployer) getDeployArguments(contractType string, metada
 
 		return []interface{}{
 			deployer.GetSignerAddress(),
-			meta.Name,
+			meta.ContractName,
 			meta.Symbol,
 			contractUri,
 			trustedForwarders,
@@ -396,7 +396,7 @@ func (deployer *ContractDeployer) getDeployArguments(contractType string, metada
 
 		return []interface{}{
 			deployer.GetSignerAddress(),
-			meta.Name,
+			meta.ContractName,
 			meta.Symbol,
 			contractUri,
 			trustedForwarders,

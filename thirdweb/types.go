@@ -372,6 +372,7 @@ type DeployNFTDropMetadata struct {
 	SellerFeeBasisPoints   int         `mapstructure:"seller_fee_basis_points" json:"seller_fee_basis_points"`
 	FeeRecipient           string      `mapstructure:"fee_recipient" json:"fee_recipient"`
 	Merkle                 interface{} `mapstructure:"merkle" json:"merkle"`
+	ContractName           string      `mapstructure:"contract_name" json:"contract_name"`
 	Symbol                 string      `mapstructure:"symbol" json:"symbol"`
 	PrimarySaleRecipient   string      `mapstructure:"primary_sale_recipient" json:"primary_sale_recipient"`
 	PlatformFeeBasisPoints int         `mapstructure:"platform_fee_basis_points" json:"platform_fee_basis_points"`
@@ -405,6 +406,7 @@ type DeployEditionDropMetadata struct {
 	SellerFeeBasisPoints   int         `mapstructure:"seller_fee_basis_points" json:"seller_fee_basis_points"`
 	FeeRecipient           string      `mapstructure:"fee_recipient" json:"fee_recipient"`
 	Merkle                 interface{} `mapstructure:"merkle" json:"merkle"`
+	ContractName           string      `mapstructure:"contract_name" json:"contract_name"`
 	Symbol                 string      `mapstructure:"symbol" json:"symbol"`
 	PrimarySaleRecipient   string      `mapstructure:"primary_sale_recipient" json:"primary_sale_recipient"`
 	PlatformFeeBasisPoints int         `mapstructure:"platform_fee_basis_points" json:"platform_fee_basis_points"`

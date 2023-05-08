@@ -25,7 +25,7 @@ import (
 //	contract, err := sdk.GetEditionDrop("{{contract_address}}")
 type EditionDrop struct {
 	*ERC1155Standard
-	abi             *abi.DropERC1155
+	Abi             *abi.DropERC1155
 	Helper          *contractHelper
 	ClaimConditions *EditionDropClaimConditions
 	Encoder         *ContractEncoder

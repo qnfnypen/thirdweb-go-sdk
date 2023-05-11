@@ -95,6 +95,73 @@ func (ipfs *IpfsStorage) Upload(ctx context.Context, data map[string]interface{}
 	return baseUri, nil
 }
 
+// UploadMapWithNames 上传 maps 到 IPFS 上
+func (ipfs *IpfsStorage) UploadMapWithNames(ctx context.Context, mapData map[string][]byte, contractAddress, signerAddress string) (string, error) {
+	var data [][]byte
+	uploadToken, err := ipfs.getUploadToken(ctx, contractAddress)
+	if err != nil {
+		return "", err
+	}
+
+	body := &bytes.Buffer{}
+	writer := multipart.NewWriter(body)
+
+	for name, value := range mapData {
+		part, err := writer.CreateFormFile("file", fmt.Sprintf("files/%v", name))
+		if err != nil {
+			return "", err
+		}
+		if _, err := part.Write(value); err != nil {
+			return "", err
+		}
+		data = append(data, value)
+	}
+
+	_ = writer.Close()
+
+	req, err := http.NewRequestWithContext(ctx, "POST", pinataIpfsUrl, body)
+	if err != nil {
+		return "", err
+	}
+
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %v", uploadToken))
+	req.Header.Set("Content-Type", writer.FormDataContentType())
+
+	result, err := ipfs.httpClient.Do(req)
+	if err != nil {
+		return "", err
+	}
+	if result.StatusCode != http.StatusOK {
+		return "", &failedToUploadError{
+			statusCode: result.StatusCode,
+			Payload:    data,
+		}
+	}
+
+	var uploadMeta uploadResponse
+	bodyBytes, err := ioutil.ReadAll(result.Body)
+	if err != nil {
+		return "", &failedToUploadError{
+			statusCode:      result.StatusCode,
+			Payload:         data,
+			UnderlyingError: err,
+		}
+	}
+
+	if err := json.Unmarshal(bodyBytes, &uploadMeta); err != nil {
+		return "", &unmarshalError{
+			body:            string(bodyBytes),
+			typeName:        "UploadResponse",
+			UnderlyingError: err,
+		}
+	}
+
+	uri := "ipfs://" + uploadMeta.IpfsHash
+
+	return uri, nil
+
+}
+
 // UploadJSON 上传 JOSN 到 IPFS 上
 func (ipfs *IpfsStorage) UploadJSON(ctx context.Context, data []byte, name, contractAddress, signerAddress string) (string, error) {
 	uploadToken, err := ipfs.getUploadToken(ctx, contractAddress)

@@ -1,6 +1,9 @@
 package merkle
 
-import "crypto/sha256"
+import (
+	"bytes"
+	"crypto/sha256"
+)
 
 // sha256Digest is the reusable digest for defaultHashFunc.
 var sha256Digest = sha256.New()
@@ -20,4 +23,15 @@ func defaultHashFuncParal(data []byte) ([]byte, error) {
 	digest := sha256.New()
 	digest.Write(data)
 	return digest.Sum(nil), nil
+}
+
+func concatHash(b1 []byte, b2 []byte) []byte {
+	return append(b1, b2...)
+}
+
+func concatSortHash(b1 []byte, b2 []byte) []byte {
+	if bytes.Compare(b1, b2) < 0 {
+		return append(b1, b2...)
+	}
+	return append(b2, b1...)
 }

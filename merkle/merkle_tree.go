@@ -34,6 +34,11 @@ type HashFuncType func([]byte) ([]byte, error)
 
 // Config is the configuration of Merkle Tree.
 type Config struct {
+	// concatFunc is the function for concatenating two hashes.
+	// If SortSiblingPairs in Config is true, then the sibling pairs are first sorted and then concatenated,
+	// supporting the OpenZeppelin Merkle Tree protocol.
+	// Otherwise, the sibling pairs are concatenated directly.
+	concatFunc func([]byte, []byte) []byte
 	// Customizable hash function used for tree generation.
 	HashFunc HashFuncType
 	// Number of goroutines run in parallel.
@@ -101,6 +106,14 @@ func New(config *Config, blocks []DataBlock) (m *MerkleTree, err error) {
 	}
 	if config.HashFunc == nil {
 		config.HashFunc = defaultHashFunc
+	}
+	// Hash concatenation function initialization.
+	if config.concatFunc == nil {
+		if config.SortPairs {
+			config.concatFunc = concatSortHash
+		} else {
+			config.concatFunc = concatHash
+		}
 	}
 	// If the configuration mode is not set, then set it to ModeProofGen by default.
 	if config.Mode == 0 {
@@ -396,32 +409,24 @@ func (m *MerkleTree) treeBuild() (err error) {
 		for j := 0; j < prevLen; j += 2 {
 			// VERY IMPORTANT: If the two leaves are duplicates (aka. an odd leaf in this case), we propagate it up
 			// Instead of hashing the duplicates together. This is to match merkletreejs implementation.
-			if (reflect.DeepEqual(m.tree[i][j], m.tree[i][j+1])) {
+			if reflect.DeepEqual(m.tree[i][j], m.tree[i][j+1]) {
 				m.tree[i+1][j>>1] = m.tree[i][j]
 			} else {
 				// IMPORTANT: To match merkletreejs, we sort the two leaves before hashing them together
-				if m.SortPairs {
-					if bytes.Compare(m.tree[i][j], m.tree[i][j+1]) < 0 {
-						m.tree[i+1][j>>1], err = m.HashFunc(append(m.tree[i][j], m.tree[i][j+1]...))
-					} else {
-						m.tree[i+1][j>>1], err = m.HashFunc(append(m.tree[i][j+1], m.tree[i][j]...))
-					}
-				} else {
-					m.tree[i+1][j>>1], err = m.HashFunc(append(m.tree[i][j], m.tree[i][j+1]...))
-				}
+				m.tree[i+1][j>>1], err = m.HashFunc(m.concatFunc(m.tree[i][j], m.tree[i][j+1]))
 			}
 
 			if err != nil {
 				return
 			}
 		}
-		
+
 		m.tree[i+1], prevLen, err = m.fixOdd(m.tree[i+1], len(m.tree[i+1]))
 		if err != nil {
 			return
 		}
 	}
-	m.Root, err = m.HashFunc(append(m.tree[m.Depth-1][0], m.tree[m.Depth-1][1]...))
+	m.Root, err = m.HashFunc(m.concatFunc(m.tree[m.Depth-1][0], m.tree[m.Depth-1][1]))
 	if err != nil {
 		return
 	}

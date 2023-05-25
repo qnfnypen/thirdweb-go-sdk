@@ -3,7 +3,6 @@ package thirdweb
 import (
 	"context"
 	"fmt"
-	"math/big"
 	"reflect"
 	"strings"
 
@@ -91,19 +90,20 @@ func (encoder *ContractEncoder) Encode(ctx context.Context, signerAddress string
 			}
 
 			arg = common.HexToAddress(parsedArg)
-		} else if strings.Contains(inputType, "int") {
-			parsedArg, ok := arg.(int)
-			if !ok {
-				return nil, fmt.Errorf(
-					"argument %d (%v) should be of type 'int', but type '%v' was provided",
-					i,
-					input.Name,
-					reflect.TypeOf(arg),
-				)
-			}
-
-			arg = big.NewInt(int64(parsedArg))
 		}
+		// } else if strings.Contains(inputType, "int") {
+		// 	parsedArg, ok := arg.(int)
+		// 	if !ok {
+		// 		return nil, fmt.Errorf(
+		// 			"argument %d (%v) should be of type 'int', but type '%v' was provided",
+		// 			i,
+		// 			input.Name,
+		// 			reflect.TypeOf(arg),
+		// 		)
+		// 	}
+
+		// 	arg = big.NewInt(int64(parsedArg))
+		// }
 
 		typedArgs = append(typedArgs, arg)
 	}

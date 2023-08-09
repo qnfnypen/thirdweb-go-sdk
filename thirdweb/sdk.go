@@ -25,7 +25,11 @@ type ThirdwebSDK struct {
 //
 // options: an SDKOptions instance to specify a private key and/or an IPFS gateway URL
 func NewThirdwebSDK(rpcUrlOrChainName string, options *SDKOptions) (*ThirdwebSDK, error) {
-	rpc, err := getDefaultRpcUrl(rpcUrlOrChainName)
+	clientId := ""
+	if options != nil && options.SecretKey != "" {
+		clientId = deriveClientId(options.SecretKey)
+	}
+	rpc, err := getDefaultRpcUrl(rpcUrlOrChainName, clientId)
 	if err != nil {
 		return nil, err
 	}
@@ -38,21 +42,29 @@ func NewThirdwebSDK(rpcUrlOrChainName string, options *SDKOptions) (*ThirdwebSDK
 	return NewThirdwebSDKFromProvider(provider, options)
 }
 
-
 func NewThirdwebSDKFromProvider(provider *ethclient.Client, options *SDKOptions) (*ThirdwebSDK, error) {
 	// Define defaults for all the options
+	secretKey := ""
 	privateKey := ""
 	gatewayUrl := defaultIpfsGatewayUrl
 	httpClient := http.DefaultClient
 
 	// Override defaults with the options that are defined
 	if options != nil {
+		if options.SecretKey != "" {
+			secretKey = options.SecretKey
+		}
 		if options.PrivateKey != "" {
 			privateKey = options.PrivateKey
 		}
 
 		if options.GatewayUrl != "" {
 			gatewayUrl = options.GatewayUrl
+		} else if secretKey != "" {
+			clientId := deriveClientId(secretKey)
+			gatewayUrl = fmt.Sprintf("https://%s.ipfscdn.io/ipfs/", clientId)
+		} else {
+			gatewayUrl = defaultIpfsGatewayUrl
 		}
 
 		if options.HttpClient != nil {
@@ -60,7 +72,7 @@ func NewThirdwebSDKFromProvider(provider *ethclient.Client, options *SDKOptions)
 		}
 	}
 
-	storage := newIpfsStorage(gatewayUrl, httpClient)
+	storage := newIpfsStorage(secretKey, gatewayUrl, httpClient)
 
 	handler, err := NewProviderHandler(provider, privateKey)
 	if err != nil {
@@ -222,38 +234,42 @@ func (sdk *ThirdwebSDK) GetContractFromAbi(address string, abi string) (*SmartCo
 	)
 }
 
-func defaultRpc(network string) (string, error) {
+func defaultRpc(network, clientId string) (string, error) {
 	defaultApiKey := "718c5c811c7f3224efb283e04faab56a8a5cbde78d92a6d4cb905b41985d3856"
+	if clientId != "" {
+		return fmt.Sprintf("https://%s.rpc.thirdweb.com/%s", network, clientId), nil
+	}
+
 	return fmt.Sprintf("https://%s.rpc.thirdweb.com/%s", network, defaultApiKey), nil
 }
 
-func getDefaultRpcUrl(rpcUrlorName string) (string, error) {
+func getDefaultRpcUrl(rpcUrlorName, clientId string) (string, error) {
 	switch rpcUrlorName {
 	case "mumbai":
-		return defaultRpc("mumbai")
+		return defaultRpc("mumbai", clientId)
 	case "goerli":
-		return defaultRpc("goerli")
+		return defaultRpc("goerli", clientId)
 	case "polygon":
-		return defaultRpc("polygon")
+		return defaultRpc("polygon", clientId)
 	case "mainnet", "ethereum":
-		return defaultRpc("ethereum")
+		return defaultRpc("ethereum", clientId)
 	case "fantom":
-		return defaultRpc("fantom")
+		return defaultRpc("fantom", clientId)
 	case "avalanche":
-		return defaultRpc("avalanche")
+		return defaultRpc("avalanche", clientId)
 	case "optimism":
-		return defaultRpc("optimism")
+		return defaultRpc("optimism", clientId)
 	case "optimism-goerli":
-		return defaultRpc("optimism-goerli")
+		return defaultRpc("optimism-goerli", clientId)
 	case "arbitrum":
-		return defaultRpc("arbitrum")
+		return defaultRpc("arbitrum", clientId)
 	case "arbitrum-goerli":
-		return defaultRpc("arbitrum-goerli")
+		return defaultRpc("arbitrum-goerli", clientId)
 	default:
 		if strings.HasPrefix(rpcUrlorName, "http") {
 			return rpcUrlorName, nil
 		} else {
-			return "", fmt.Errorf("invalid rpc url or chain name: %s", rpcUrlorName)
+			return defaultRpc(rpcUrlorName, clientId)
 		}
 	}
 }

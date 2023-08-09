@@ -34,11 +34,12 @@ type uploadResponse struct {
 }
 
 type IpfsStorage struct {
+	secretKey  string
 	gatewayUrl string
 	httpClient *http.Client
 }
 
-func newIpfsStorage(gatewayUrl string, httpClient *http.Client) *IpfsStorage {
+func newIpfsStorage(secretKey, gatewayUrl string, httpClient *http.Client) *IpfsStorage {
 	return &IpfsStorage{
 		gatewayUrl: gatewayUrl,
 		httpClient: httpClient,
@@ -58,6 +59,11 @@ func (ipfs *IpfsStorage) Get(ctx context.Context, uri string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	
+	if strings.Contains(ipfs.gatewayUrl, ".ipfscdn.io") {
+		req.Header.Set("x-secret-key", ipfs.secretKey)
+	}
+
 	resp, err := ipfs.httpClient.Do(req)
 	if err != nil {
 		return nil, err
@@ -98,10 +104,6 @@ func (ipfs *IpfsStorage) Upload(ctx context.Context, data map[string]interface{}
 // UploadMapWithNames 上传 maps 到 IPFS 上
 func (ipfs *IpfsStorage) UploadMapWithNames(ctx context.Context, mapData map[string][]byte, contractAddress, signerAddress string) (string, error) {
 	var data [][]byte
-	uploadToken, err := ipfs.getUploadToken(ctx, contractAddress)
-	if err != nil {
-		return "", err
-	}
 
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
@@ -119,12 +121,12 @@ func (ipfs *IpfsStorage) UploadMapWithNames(ctx context.Context, mapData map[str
 
 	_ = writer.Close()
 
-	req, err := http.NewRequestWithContext(ctx, "POST", pinataIpfsUrl, body)
+	req, err := http.NewRequestWithContext(ctx, "POST", twStorageUploadUrl, body)
 	if err != nil {
 		return "", err
 	}
 
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %v", uploadToken))
+	req.Header.Set("x-secret-key", ipfs.secretKey)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	result, err := ipfs.httpClient.Do(req)
@@ -164,11 +166,6 @@ func (ipfs *IpfsStorage) UploadMapWithNames(ctx context.Context, mapData map[str
 
 // UploadJSON 上传 JOSN 到 IPFS 上
 func (ipfs *IpfsStorage) UploadJSON(ctx context.Context, data []byte, name, contractAddress, signerAddress string) (string, error) {
-	uploadToken, err := ipfs.getUploadToken(ctx, contractAddress)
-	if err != nil {
-		return "", err
-	}
-
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
 	part, err := writer.CreateFormFile("file", fmt.Sprintf("files/%s", name))
@@ -181,12 +178,12 @@ func (ipfs *IpfsStorage) UploadJSON(ctx context.Context, data []byte, name, cont
 
 	_ = writer.Close()
 
-	req, err := http.NewRequestWithContext(ctx, "POST", pinataIpfsUrl, body)
+	req, err := http.NewRequestWithContext(ctx, "POST", twStorageUploadUrl, body)
 	if err != nil {
 		return "", err
 	}
 
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %v", uploadToken))
+	req.Header.Set("x-secret-key", ipfs.secretKey)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	result, err := ipfs.httpClient.Do(req)
@@ -300,11 +297,6 @@ func (ipfs *IpfsStorage) uploadBatchWithCid(
 	contractAddress string,
 	signerAddress string,
 ) (*baseUriWithUris, error) {
-	uploadToken, err := ipfs.getUploadToken(ctx, contractAddress)
-	if err != nil {
-		return nil, err
-	}
-
 	fileNames := []string{}
 
 	body := &bytes.Buffer{}
@@ -341,12 +333,12 @@ func (ipfs *IpfsStorage) uploadBatchWithCid(
 
 	_ = writer.Close()
 
-	req, err := http.NewRequestWithContext(ctx, "POST", pinataIpfsUrl, body)
+	req, err := http.NewRequestWithContext(ctx, "POST", twStorageUploadUrl, body)
 	if err != nil {
 		return nil, err
 	}
 
-	req.Header.Set("Authorization", fmt.Sprintf("Bearer %v", uploadToken))
+	req.Header.Set("x-secret-key", ipfs.secretKey)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 
 	if result, err := ipfs.httpClient.Do(req); err != nil {

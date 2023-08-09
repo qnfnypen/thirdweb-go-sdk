@@ -10,6 +10,7 @@ import (
 )
 
 type SDKOptions struct {
+	SecretKey  string
 	PrivateKey string
 	GatewayUrl string
 	HttpClient *http.Client
@@ -64,6 +65,16 @@ type EditionMetadataOwner struct {
 type EditionMetadataInput struct {
 	Metadata *NFTMetadataInput
 	Supply   int
+}
+
+type PreparedClaimTo struct {
+	Receiver common.Address
+	Quantity *big.Int
+	Currency common.Address
+	PricePerToken *big.Int
+	AllowlistProof abi.IDropAllowlistProof
+	Data []byte
+	Value *big.Int
 }
 
 type ClaimVerification struct {

@@ -72,9 +72,9 @@ func newERC721(provider *ethclient.Client, address common.Address, privateKey st
 //
 // Example
 //
-// 	nft, err := contract.ERC721.Get(context.Background(), 0)
-// 	owner := nft.Owner
-// 	name := nft.Metadata.Name
+//	nft, err := contract.ERC721.Get(context.Background(), 0)
+//	owner := nft.Owner
+//	name := nft.Metadata.Name
 func (erc721 *ERC721) Get(ctx context.Context, tokenId int) (*NFTMetadataOwner, error) {
 	owner := "0x0000000000000000000000000000000000000000"
 	if address, err := erc721.OwnerOf(ctx, tokenId); err == nil {
@@ -123,7 +123,7 @@ func (erc721 *ERC721) GetAll(ctx context.Context) ([]*NFTMetadataOwner, error) {
 //
 // Example
 //
-// 	totalCount, err := contract.ERC721.GetTotalCount(context.Background())
+//	totalCount, err := contract.ERC721.GetTotalCount(context.Background())
 func (erc721 *ERC721) GetTotalCount(ctx context.Context) (int, error) {
 	count, err := erc721.token.NextTokenIdToMint(&bind.CallOpts{Context: ctx})
 	if err != nil {
@@ -191,7 +191,7 @@ func (erc721 *ERC721) GetAllUnclaimed(ctx context.Context) ([]*NFTMetadata, erro
 //
 // Example
 //
-// 	totalClaimed, err := contract.ERC721.TotalClaimedSupply(context.Background())
+//	totalClaimed, err := contract.ERC721.TotalClaimedSupply(context.Background())
 func (erc721 *ERC721) TotalClaimedSupply(ctx context.Context) (int, error) {
 	claimed, err := erc721.drop.NextTokenIdToClaim(&bind.CallOpts{Context: ctx})
 	if err != nil {
@@ -207,7 +207,7 @@ func (erc721 *ERC721) TotalClaimedSupply(ctx context.Context) (int, error) {
 //
 // Example
 //
-// 	totalUnclaimed, err := contract.ERC721.TotalUnclaimedSupply(context.Background())
+//	totalUnclaimed, err := contract.ERC721.TotalUnclaimedSupply(context.Background())
 func (erc721 *ERC721) TotalUnclaimedSupply(ctx context.Context) (int, error) {
 	claimed, err := erc721.drop.NextTokenIdToClaim(&bind.CallOpts{Context: ctx})
 	if err != nil {
@@ -233,8 +233,8 @@ func (erc721 *ERC721) TotalUnclaimedSupply(ctx context.Context) (int, error) {
 //
 // Example
 //
-// 	tokenId := 0
-// 	owner, err := contract.ERC721.OwnerOf(context.Background(), tokenId)
+//	tokenId := 0
+//	owner, err := contract.ERC721.OwnerOf(context.Background(), tokenId)
 func (erc721 *ERC721) OwnerOf(ctx context.Context, tokenId int) (string, error) {
 	if address, err := erc721.token.OwnerOf(&bind.CallOpts{
 		Context: ctx,
@@ -253,7 +253,7 @@ func (erc721 *ERC721) OwnerOf(ctx context.Context, tokenId int) (string, error) 
 //
 // Example
 //
-// 	supply, err := contract.ERC721.TotalSupply(context.Background)
+//	supply, err := contract.ERC721.TotalSupply(context.Background)
 func (erc721 *ERC721) TotalSupply(ctx context.Context) (int, error) {
 	supply, err := erc721.token.TotalSupply(&bind.CallOpts{
 		Context: ctx,
@@ -273,7 +273,7 @@ func (erc721 *ERC721) TotalSupply(ctx context.Context) (int, error) {
 //
 // Example
 //
-// 	balance, err := contract.ERC721.Balance(context.Background())
+//	balance, err := contract.ERC721.Balance(context.Background())
 func (erc721 *ERC721) Balance(ctx context.Context) (int, error) {
 	return erc721.BalanceOf(ctx, erc721.helper.GetSignerAddress().String())
 }
@@ -313,10 +313,10 @@ func (erc721 *ERC721) BalanceOf(ctx context.Context, address string) (int, error
 //
 // Example
 //
-// 	owner := "{{wallet_address}}"
-// 	operator := "0x..."
+//	owner := "{{wallet_address}}"
+//	operator := "0x..."
 //
-// 	isApproved, err := contract.ERC721.IsApproved(ctx, owner, operator)
+//	isApproved, err := contract.ERC721.IsApproved(ctx, owner, operator)
 func (erc721 *ERC721) IsApproved(ctx context.Context, owner string, operator string) (bool, error) {
 	return erc721.token.IsApprovedForAll(&bind.CallOpts{Context: ctx}, common.HexToAddress(owner), common.HexToAddress(operator))
 }
@@ -555,10 +555,10 @@ func (erc721 *ERC721) Burn(ctx context.Context, tokenId int) (*types.Transaction
 //
 // Example
 //
-// 	operator := "{{wallet_address}}"
-// 	approved := true
+//	operator := "{{wallet_address}}"
+//	approved := true
 //
-// 	tx, err := contract.ERC721.SetApprovalForAll(context.Background(), operator, approved)
+//	tx, err := contract.ERC721.SetApprovalForAll(context.Background(), operator, approved)
 func (erc721 *ERC721) SetApprovalForAll(ctx context.Context, operator string, approved bool) (*types.Transaction, error) {
 	txOpts, err := erc721.helper.GetTxOptions(ctx)
 	if err != nil {
@@ -583,11 +583,11 @@ func (erc721 *ERC721) SetApprovalForAll(ctx context.Context, operator string, ap
 //
 // Example
 //
-// 	operator := "{{wallet_address}}"
-// 	approved := "0x..."
-// 	tokenId := 0
+//	operator := "{{wallet_address}}"
+//	approved := "0x..."
+//	tokenId := 0
 //
-// 	tx, err := contract.ERC721.SetApprovalForToken(context.Background(), operator, approved, tokenId)
+//	tx, err := contract.ERC721.SetApprovalForToken(context.Background(), operator, approved, tokenId)
 func (erc721 *ERC721) SetApprovalForToken(ctx context.Context, operator string, tokenId int) (*types.Transaction, error) {
 	txOpts, err := erc721.helper.GetTxOptions(ctx)
 	if err != nil {
@@ -619,7 +619,7 @@ func (erc721 *ERC721) SetApprovalForToken(ctx context.Context, operator string, 
 //		Image: image,
 //	}
 //
-// 	tx, err := contract.ERC721.Mint(context.Background(), metadata)
+//	tx, err := contract.ERC721.Mint(context.Background(), metadata)
 func (erc721 *ERC721) Mint(ctx context.Context, metadata *NFTMetadataInput) (*types.Transaction, error) {
 	address := erc721.helper.GetSignerAddress().String()
 	return erc721.MintTo(ctx, address, metadata)
@@ -866,9 +866,7 @@ func (erc721 *ERC721) Claim(ctx context.Context, quantity int) (*types.Transacti
 //
 //	tx, err := contract.ERC721.ClaimTo(context.Background(), address, quantity)
 func (erc721 *ERC721) ClaimTo(ctx context.Context, destinationAddress string, quantity int) (*types.Transaction, error) {
-	addressToClaim := erc721.helper.GetSignerAddress().Hex()
-
-	claimVerification, err := erc721.prepareClaim(ctx, addressToClaim, quantity, true)
+	preparedClaimTo, err := erc721.PrepareClaimTo(ctx, destinationAddress, quantity)
 	if err != nil {
 		return nil, err
 	}
@@ -878,7 +876,31 @@ func (erc721 *ERC721) ClaimTo(ctx context.Context, destinationAddress string, qu
 		return nil, err
 	}
 
-	txOpts.Value = claimVerification.Value
+	txOpts.Value = preparedClaimTo.Value
+
+	tx, err := erc721.drop.Claim(
+		txOpts,
+		preparedClaimTo.Receiver,
+		preparedClaimTo.Quantity,
+		preparedClaimTo.Currency,
+		preparedClaimTo.PricePerToken,
+		preparedClaimTo.AllowlistProof,
+		preparedClaimTo.Data,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return erc721.helper.AwaitTx(ctx, tx.Hash())
+}
+
+func (erc721 *ERC721) PrepareClaimTo(ctx context.Context, destinationAddress string, quantity int) (*PreparedClaimTo, error) {
+	addressToClaim := erc721.helper.GetSignerAddress().Hex()
+
+	claimVerification, err := erc721.prepareClaim(ctx, addressToClaim, quantity, true)
+	if err != nil {
+		return nil, err
+	}
 
 	proof := abi.IDropAllowlistProof{
 		Proof:                  claimVerification.Proofs,
@@ -887,20 +909,15 @@ func (erc721 *ERC721) ClaimTo(ctx context.Context, destinationAddress string, qu
 		Currency:               common.HexToAddress(claimVerification.CurrencyAddressInProof),
 	}
 
-	tx, err := erc721.drop.Claim(
-		txOpts,
-		common.HexToAddress(destinationAddress),
-		big.NewInt(int64(quantity)),
-		common.HexToAddress(claimVerification.CurrencyAddress),
-		claimVerification.Price,
-		proof,
-		[]byte{},
-	)
-	if err != nil {
-		return nil, err
-	}
-
-	return erc721.helper.AwaitTx(ctx, tx.Hash())
+	return &PreparedClaimTo{
+		Value:          claimVerification.Value,
+		Receiver:       common.HexToAddress(destinationAddress),
+		Quantity:       big.NewInt(int64(quantity)),
+		Currency:       common.HexToAddress(claimVerification.CurrencyAddress),
+		PricePerToken:  claimVerification.Price,
+		AllowlistProof: proof,
+		Data:           []byte{},
+	}, nil
 }
 
 func (erc721 *ERC721) GetClaimArguments(

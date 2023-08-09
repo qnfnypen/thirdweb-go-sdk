@@ -41,6 +41,7 @@ type IpfsStorage struct {
 
 func newIpfsStorage(secretKey, gatewayUrl string, httpClient *http.Client) *IpfsStorage {
 	return &IpfsStorage{
+		secretKey:  secretKey,
 		gatewayUrl: gatewayUrl,
 		httpClient: httpClient,
 	}
@@ -59,7 +60,7 @@ func (ipfs *IpfsStorage) Get(ctx context.Context, uri string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	if strings.Contains(ipfs.gatewayUrl, ".ipfscdn.io") {
 		req.Header.Set("x-secret-key", ipfs.secretKey)
 	}
@@ -183,6 +184,7 @@ func (ipfs *IpfsStorage) UploadJSON(ctx context.Context, data []byte, name, cont
 		return "", err
 	}
 
+	req.Header.Set("Origin","https://test-admin.culturevault.com/")
 	req.Header.Set("x-secret-key", ipfs.secretKey)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 

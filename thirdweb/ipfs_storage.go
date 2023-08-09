@@ -184,7 +184,6 @@ func (ipfs *IpfsStorage) UploadJSON(ctx context.Context, data []byte, name, cont
 		return "", err
 	}
 
-	req.Header.Set("Origin","https://test-admin.culturevault.com/")
 	req.Header.Set("x-secret-key", ipfs.secretKey)
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 

@@ -50,7 +50,7 @@ type IDropAllowlistProof struct {
 
 // DropERC721MetaData contains all meta data concerning the DropERC721 contract.
 var DropERC721MetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"ApprovalCallerNotOwnerNorApproved\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ApprovalQueryForNonexistentToken\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ApprovalToCurrentOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ApproveToCaller\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"BalanceQueryForZeroAddress\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MintToZeroAddress\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"MintZeroQuantity\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OwnerQueryForNonexistentToken\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"TransferCallerNotOwnerNorApproved\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"TransferFromIncorrectOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"TransferToNonERC721ReceiverImplementer\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"TransferToZeroAddress\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"URIQueryForNonexistentToken\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"startTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxClaimableSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"supplyClaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"pricePerToken\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"indexed\":false,\"internalType\":\"structIClaimCondition.ClaimCondition[]\",\"name\":\"claimConditions\",\"type\":\"tuple[]\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"resetEligibility\",\"type\":\"bool\"}],\"name\":\"ClaimConditionsUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"prevURI\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"newURI\",\"type\":\"string\"}],\"name\":\"ContractURIUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newRoyaltyRecipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newRoyaltyBps\",\"type\":\"uint256\"}],\"name\":\"DefaultRoyalty\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"maxTotalSupply\",\"type\":\"uint256\"}],\"name\":\"MaxTotalSupplyUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"prevOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnerUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"platformFeeRecipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"platformFeeBps\",\"type\":\"uint256\"}],\"name\":\"PlatformFeeInfoUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"PrimarySaleRecipientUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"royaltyRecipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"royaltyBps\",\"type\":\"uint256\"}],\"name\":\"RoyaltyForToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"revealedURI\",\"type\":\"string\"}],\"name\":\"TokenURIRevealed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"claimConditionIndex\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"claimer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startTokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"quantityClaimed\",\"type\":\"uint256\"}],\"name\":\"TokensClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"startTokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"endTokenId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"baseURI\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"encryptedBaseURI\",\"type\":\"bytes\"}],\"name\":\"TokensLazyMinted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_receiver\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_quantity\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_pricePerToken\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32[]\",\"name\":\"proof\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pricePerToken\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"}],\"internalType\":\"structIDrop.AllowlistProof\",\"name\":\"_allowlistProof\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimCondition\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"currentStartId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"count\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contractType\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contractURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contractVersion\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"key\",\"type\":\"bytes\"}],\"name\":\"encryptDecrypt\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"result\",\"type\":\"bytes\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"encryptedData\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getActiveClaimConditionId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBaseURICount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"}],\"name\":\"getBatchIdAtIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_conditionId\",\"type\":\"uint256\"}],\"name\":\"getClaimConditionById\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"startTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxClaimableSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"supplyClaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"pricePerToken\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"internalType\":\"structIClaimCondition.ClaimCondition\",\"name\":\"condition\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDefaultRoyaltyInfo\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPlatformFeeInfo\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_batchId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_key\",\"type\":\"bytes\"}],\"name\":\"getRevealURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"revealedURI\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"count\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"getRoyaltyInfoForToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_conditionId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_claimer\",\"type\":\"address\"}],\"name\":\"getSupplyClaimedByWallet\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"supplyClaimedByWallet\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRoleWithSwitch\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_defaultAdmin\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_symbol\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_contractURI\",\"type\":\"string\"},{\"internalType\":\"address[]\",\"name\":\"_trustedForwarders\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"_saleRecipient\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_royaltyRecipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"_royaltyBps\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"_platformFeeBps\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"_platformFeeRecipient\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_batchId\",\"type\":\"uint256\"}],\"name\":\"isEncryptedBatch\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"forwarder\",\"type\":\"address\"}],\"name\":\"isTrustedForwarder\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_baseURIForTokens\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"lazyMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"batchId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes[]\",\"name\":\"data\",\"type\":\"bytes[]\"}],\"name\":\"multicall\",\"outputs\":[{\"internalType\":\"bytes[]\",\"name\":\"results\",\"type\":\"bytes[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextTokenIdToClaim\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextTokenIdToMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"primarySaleRecipient\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_index\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_key\",\"type\":\"bytes\"}],\"name\":\"reveal\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"revealedURI\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"salePrice\",\"type\":\"uint256\"}],\"name\":\"royaltyInfo\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"royaltyAmount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"startTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxClaimableSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"supplyClaimed\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"pricePerToken\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"metadata\",\"type\":\"string\"}],\"internalType\":\"structIClaimCondition.ClaimCondition[]\",\"name\":\"_conditions\",\"type\":\"tuple[]\"},{\"internalType\":\"bool\",\"name\":\"_resetClaimEligibility\",\"type\":\"bool\"}],\"name\":\"setClaimConditions\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_uri\",\"type\":\"string\"}],\"name\":\"setContractURI\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_royaltyRecipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_royaltyBps\",\"type\":\"uint256\"}],\"name\":\"setDefaultRoyaltyInfo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_maxTotalSupply\",\"type\":\"uint256\"}],\"name\":\"setMaxTotalSupply\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"setOwner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_platformFeeRecipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_platformFeeBps\",\"type\":\"uint256\"}],\"name\":\"setPlatformFeeInfo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_saleRecipient\",\"type\":\"address\"}],\"name\":\"setPrimarySaleRecipient\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_bps\",\"type\":\"uint256\"}],\"name\":\"setRoyaltyInfoForToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalMinted\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_conditionId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_claimer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_quantity\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_pricePerToken\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bytes32[]\",\"name\":\"proof\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"pricePerToken\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"currency\",\"type\":\"address\"}],\"internalType\":\"structIDrop.AllowlistProof\",\"name\":\"_allowlistProof\",\"type\":\"tuple\"}],\"name\":\"verifyClaim\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isOverride\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	ABI: "[{\"type\":\"constructor\",\"name\":\"\",\"inputs\":[],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"error\",\"name\":\"ApprovalCallerNotOwnerNorApproved\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"ApprovalQueryForNonexistentToken\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"ApprovalToCurrentOwner\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"ApproveToCaller\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"BalanceQueryForZeroAddress\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"MintToZeroAddress\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"MintZeroQuantity\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"OwnerQueryForNonexistentToken\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"TransferCallerNotOwnerNorApproved\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"TransferFromIncorrectOwner\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"TransferToNonERC721ReceiverImplementer\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"TransferToZeroAddress\",\"inputs\":[],\"outputs\":[]},{\"type\":\"error\",\"name\":\"URIQueryForNonexistentToken\",\"inputs\":[],\"outputs\":[]},{\"type\":\"event\",\"name\":\"Approval\",\"inputs\":[{\"type\":\"address\",\"name\":\"owner\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"approved\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"tokenId\",\"indexed\":true,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"ApprovalForAll\",\"inputs\":[{\"type\":\"address\",\"name\":\"owner\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"operator\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"bool\",\"name\":\"approved\",\"indexed\":false,\"internalType\":\"bool\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"BatchMetadataUpdate\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_fromTokenId\",\"indexed\":false,\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"_toTokenId\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"ClaimConditionsUpdated\",\"inputs\":[{\"type\":\"tuple[]\",\"name\":\"claimConditions\",\"components\":[{\"type\":\"uint256\",\"name\":\"startTimestamp\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"maxClaimableSupply\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"supplyClaimed\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"internalType\":\"uint256\"},{\"type\":\"bytes32\",\"name\":\"merkleRoot\",\"internalType\":\"bytes32\"},{\"type\":\"uint256\",\"name\":\"pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"currency\",\"internalType\":\"address\"},{\"type\":\"string\",\"name\":\"metadata\",\"internalType\":\"string\"}],\"indexed\":false,\"internalType\":\"structIClaimCondition.ClaimCondition[]\"},{\"type\":\"bool\",\"name\":\"resetEligibility\",\"indexed\":false,\"internalType\":\"bool\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"ContractURIUpdated\",\"inputs\":[{\"type\":\"string\",\"name\":\"prevURI\",\"indexed\":false,\"internalType\":\"string\"},{\"type\":\"string\",\"name\":\"newURI\",\"indexed\":false,\"internalType\":\"string\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"DefaultRoyalty\",\"inputs\":[{\"type\":\"address\",\"name\":\"newRoyaltyRecipient\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"newRoyaltyBps\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"FlatPlatformFeeUpdated\",\"inputs\":[{\"type\":\"address\",\"name\":\"platformFeeRecipient\",\"indexed\":false,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"flatFee\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"Initialized\",\"inputs\":[{\"type\":\"uint8\",\"name\":\"version\",\"indexed\":false,\"internalType\":\"uint8\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"MaxTotalSupplyUpdated\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"maxTotalSupply\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"MetadataFrozen\",\"inputs\":[],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"OwnerUpdated\",\"inputs\":[{\"type\":\"address\",\"name\":\"prevOwner\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"newOwner\",\"indexed\":true,\"internalType\":\"address\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"PlatformFeeInfoUpdated\",\"inputs\":[{\"type\":\"address\",\"name\":\"platformFeeRecipient\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"platformFeeBps\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"PlatformFeeTypeUpdated\",\"inputs\":[{\"type\":\"uint8\",\"name\":\"feeType\",\"indexed\":false,\"internalType\":\"enumIPlatformFee.PlatformFeeType\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"PrimarySaleRecipientUpdated\",\"inputs\":[{\"type\":\"address\",\"name\":\"recipient\",\"indexed\":true,\"internalType\":\"address\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"RoleAdminChanged\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"indexed\":true,\"internalType\":\"bytes32\"},{\"type\":\"bytes32\",\"name\":\"previousAdminRole\",\"indexed\":true,\"internalType\":\"bytes32\"},{\"type\":\"bytes32\",\"name\":\"newAdminRole\",\"indexed\":true,\"internalType\":\"bytes32\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"RoleGranted\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"indexed\":true,\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"sender\",\"indexed\":true,\"internalType\":\"address\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"RoleRevoked\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"indexed\":true,\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"sender\",\"indexed\":true,\"internalType\":\"address\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"RoyaltyForToken\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"tokenId\",\"indexed\":true,\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"royaltyRecipient\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"royaltyBps\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"TokenURIRevealed\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"index\",\"indexed\":true,\"internalType\":\"uint256\"},{\"type\":\"string\",\"name\":\"revealedURI\",\"indexed\":false,\"internalType\":\"string\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"TokensClaimed\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"claimConditionIndex\",\"indexed\":true,\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"claimer\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"receiver\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"startTokenId\",\"indexed\":false,\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"quantityClaimed\",\"indexed\":false,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"TokensLazyMinted\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"startTokenId\",\"indexed\":true,\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"endTokenId\",\"indexed\":false,\"internalType\":\"uint256\"},{\"type\":\"string\",\"name\":\"baseURI\",\"indexed\":false,\"internalType\":\"string\"},{\"type\":\"bytes\",\"name\":\"encryptedBaseURI\",\"indexed\":false,\"internalType\":\"bytes\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"event\",\"name\":\"Transfer\",\"inputs\":[{\"type\":\"address\",\"name\":\"from\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"to\",\"indexed\":true,\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"tokenId\",\"indexed\":true,\"internalType\":\"uint256\"}],\"outputs\":[],\"anonymous\":false},{\"type\":\"function\",\"name\":\"DEFAULT_ADMIN_ROLE\",\"inputs\":[],\"outputs\":[{\"type\":\"bytes32\",\"name\":\"\",\"internalType\":\"bytes32\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"approve\",\"inputs\":[{\"type\":\"address\",\"name\":\"to\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"balanceOf\",\"inputs\":[{\"type\":\"address\",\"name\":\"owner\",\"internalType\":\"address\"}],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"batchFrozen\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"burn\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"claim\",\"inputs\":[{\"type\":\"address\",\"name\":\"_receiver\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_quantity\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"_currency\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"tuple\",\"name\":\"_allowlistProof\",\"components\":[{\"type\":\"bytes32[]\",\"name\":\"proof\",\"internalType\":\"bytes32[]\"},{\"type\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"currency\",\"internalType\":\"address\"}],\"internalType\":\"structIDrop.AllowlistProof\"},{\"type\":\"bytes\",\"name\":\"_data\",\"internalType\":\"bytes\"}],\"outputs\":[],\"stateMutability\":\"payable\"},{\"type\":\"function\",\"name\":\"claimCondition\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"currentStartId\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"count\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"contractType\",\"inputs\":[],\"outputs\":[{\"type\":\"bytes32\",\"name\":\"\",\"internalType\":\"bytes32\"}],\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"contractURI\",\"inputs\":[],\"outputs\":[{\"type\":\"string\",\"name\":\"\",\"internalType\":\"string\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"contractVersion\",\"inputs\":[],\"outputs\":[{\"type\":\"uint8\",\"name\":\"\",\"internalType\":\"uint8\"}],\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"encryptDecrypt\",\"inputs\":[{\"type\":\"bytes\",\"name\":\"data\",\"internalType\":\"bytes\"},{\"type\":\"bytes\",\"name\":\"key\",\"internalType\":\"bytes\"}],\"outputs\":[{\"type\":\"bytes\",\"name\":\"result\",\"internalType\":\"bytes\"}],\"stateMutability\":\"pure\"},{\"type\":\"function\",\"name\":\"encryptedData\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"bytes\",\"name\":\"\",\"internalType\":\"bytes\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"freezeBatchBaseURI\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_index\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"getActiveClaimConditionId\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getApproved\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getBaseURICount\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getBatchIdAtIndex\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_index\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getClaimConditionById\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_conditionId\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"tuple\",\"name\":\"condition\",\"components\":[{\"type\":\"uint256\",\"name\":\"startTimestamp\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"maxClaimableSupply\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"supplyClaimed\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"internalType\":\"uint256\"},{\"type\":\"bytes32\",\"name\":\"merkleRoot\",\"internalType\":\"bytes32\"},{\"type\":\"uint256\",\"name\":\"pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"currency\",\"internalType\":\"address\"},{\"type\":\"string\",\"name\":\"metadata\",\"internalType\":\"string\"}],\"internalType\":\"structIClaimCondition.ClaimCondition\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getDefaultRoyaltyInfo\",\"inputs\":[],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"},{\"type\":\"uint16\",\"name\":\"\",\"internalType\":\"uint16\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getFlatPlatformFeeInfo\",\"inputs\":[],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getPlatformFeeInfo\",\"inputs\":[],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"},{\"type\":\"uint16\",\"name\":\"\",\"internalType\":\"uint16\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getPlatformFeeType\",\"inputs\":[],\"outputs\":[{\"type\":\"uint8\",\"name\":\"\",\"internalType\":\"enumIPlatformFee.PlatformFeeType\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getRevealURI\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_batchId\",\"internalType\":\"uint256\"},{\"type\":\"bytes\",\"name\":\"_key\",\"internalType\":\"bytes\"}],\"outputs\":[{\"type\":\"string\",\"name\":\"revealedURI\",\"internalType\":\"string\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getRoleAdmin\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"}],\"outputs\":[{\"type\":\"bytes32\",\"name\":\"\",\"internalType\":\"bytes32\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getRoleMember\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"},{\"type\":\"uint256\",\"name\":\"index\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"member\",\"internalType\":\"address\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getRoleMemberCount\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"}],\"outputs\":[{\"type\":\"uint256\",\"name\":\"count\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getRoyaltyInfoForToken\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"},{\"type\":\"uint16\",\"name\":\"\",\"internalType\":\"uint16\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"getSupplyClaimedByWallet\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_conditionId\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"_claimer\",\"internalType\":\"address\"}],\"outputs\":[{\"type\":\"uint256\",\"name\":\"supplyClaimedByWallet\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"grantRole\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"hasRole\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"internalType\":\"address\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"hasRoleWithSwitch\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"internalType\":\"address\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"initialize\",\"inputs\":[{\"type\":\"address\",\"name\":\"_defaultAdmin\",\"internalType\":\"address\"},{\"type\":\"string\",\"name\":\"_name\",\"internalType\":\"string\"},{\"type\":\"string\",\"name\":\"_symbol\",\"internalType\":\"string\"},{\"type\":\"string\",\"name\":\"_contractURI\",\"internalType\":\"string\"},{\"type\":\"address[]\",\"name\":\"_trustedForwarders\",\"internalType\":\"address[]\"},{\"type\":\"address\",\"name\":\"_saleRecipient\",\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"_royaltyRecipient\",\"internalType\":\"address\"},{\"type\":\"uint128\",\"name\":\"_royaltyBps\",\"internalType\":\"uint128\"},{\"type\":\"uint128\",\"name\":\"_platformFeeBps\",\"internalType\":\"uint128\"},{\"type\":\"address\",\"name\":\"_platformFeeRecipient\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"isApprovedForAll\",\"inputs\":[{\"type\":\"address\",\"name\":\"owner\",\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"operator\",\"internalType\":\"address\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"isEncryptedBatch\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_batchId\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"isTrustedForwarder\",\"inputs\":[{\"type\":\"address\",\"name\":\"forwarder\",\"internalType\":\"address\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"lazyMint\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_amount\",\"internalType\":\"uint256\"},{\"type\":\"string\",\"name\":\"_baseURIForTokens\",\"internalType\":\"string\"},{\"type\":\"bytes\",\"name\":\"_data\",\"internalType\":\"bytes\"}],\"outputs\":[{\"type\":\"uint256\",\"name\":\"batchId\",\"internalType\":\"uint256\"}],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"maxTotalSupply\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"multicall\",\"inputs\":[{\"type\":\"bytes[]\",\"name\":\"data\",\"internalType\":\"bytes[]\"}],\"outputs\":[{\"type\":\"bytes[]\",\"name\":\"results\",\"internalType\":\"bytes[]\"}],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"name\",\"inputs\":[],\"outputs\":[{\"type\":\"string\",\"name\":\"\",\"internalType\":\"string\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"nextTokenIdToClaim\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"nextTokenIdToMint\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"owner\",\"inputs\":[],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"ownerOf\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"primarySaleRecipient\",\"inputs\":[],\"outputs\":[{\"type\":\"address\",\"name\":\"\",\"internalType\":\"address\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"renounceRole\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"reveal\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_index\",\"internalType\":\"uint256\"},{\"type\":\"bytes\",\"name\":\"_key\",\"internalType\":\"bytes\"}],\"outputs\":[{\"type\":\"string\",\"name\":\"revealedURI\",\"internalType\":\"string\"}],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"revokeRole\",\"inputs\":[{\"type\":\"bytes32\",\"name\":\"role\",\"internalType\":\"bytes32\"},{\"type\":\"address\",\"name\":\"account\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"royaltyInfo\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"salePrice\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"receiver\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"royaltyAmount\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"safeTransferFrom\",\"inputs\":[{\"type\":\"address\",\"name\":\"from\",\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"to\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"safeTransferFrom\",\"inputs\":[{\"type\":\"address\",\"name\":\"from\",\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"to\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"},{\"type\":\"bytes\",\"name\":\"_data\",\"internalType\":\"bytes\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setApprovalForAll\",\"inputs\":[{\"type\":\"address\",\"name\":\"operator\",\"internalType\":\"address\"},{\"type\":\"bool\",\"name\":\"approved\",\"internalType\":\"bool\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setClaimConditions\",\"inputs\":[{\"type\":\"tuple[]\",\"name\":\"_conditions\",\"components\":[{\"type\":\"uint256\",\"name\":\"startTimestamp\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"maxClaimableSupply\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"supplyClaimed\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"internalType\":\"uint256\"},{\"type\":\"bytes32\",\"name\":\"merkleRoot\",\"internalType\":\"bytes32\"},{\"type\":\"uint256\",\"name\":\"pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"currency\",\"internalType\":\"address\"},{\"type\":\"string\",\"name\":\"metadata\",\"internalType\":\"string\"}],\"internalType\":\"structIClaimCondition.ClaimCondition[]\"},{\"type\":\"bool\",\"name\":\"_resetClaimEligibility\",\"internalType\":\"bool\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setContractURI\",\"inputs\":[{\"type\":\"string\",\"name\":\"_uri\",\"internalType\":\"string\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setDefaultRoyaltyInfo\",\"inputs\":[{\"type\":\"address\",\"name\":\"_royaltyRecipient\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_royaltyBps\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setFlatPlatformFeeInfo\",\"inputs\":[{\"type\":\"address\",\"name\":\"_platformFeeRecipient\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_flatFee\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setMaxTotalSupply\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_maxTotalSupply\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setOwner\",\"inputs\":[{\"type\":\"address\",\"name\":\"_newOwner\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setPlatformFeeInfo\",\"inputs\":[{\"type\":\"address\",\"name\":\"_platformFeeRecipient\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_platformFeeBps\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setPlatformFeeType\",\"inputs\":[{\"type\":\"uint8\",\"name\":\"_feeType\",\"internalType\":\"enumIPlatformFee.PlatformFeeType\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setPrimarySaleRecipient\",\"inputs\":[{\"type\":\"address\",\"name\":\"_saleRecipient\",\"internalType\":\"address\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"setRoyaltyInfoForToken\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_tokenId\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"_recipient\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_bps\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"supportsInterface\",\"inputs\":[{\"type\":\"bytes4\",\"name\":\"interfaceId\",\"internalType\":\"bytes4\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"symbol\",\"inputs\":[],\"outputs\":[{\"type\":\"string\",\"name\":\"\",\"internalType\":\"string\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"tokenURI\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[{\"type\":\"string\",\"name\":\"\",\"internalType\":\"string\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"totalMinted\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"totalSupply\",\"inputs\":[],\"outputs\":[{\"type\":\"uint256\",\"name\":\"\",\"internalType\":\"uint256\"}],\"stateMutability\":\"view\"},{\"type\":\"function\",\"name\":\"transferFrom\",\"inputs\":[{\"type\":\"address\",\"name\":\"from\",\"internalType\":\"address\"},{\"type\":\"address\",\"name\":\"to\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"tokenId\",\"internalType\":\"uint256\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"updateBatchBaseURI\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_index\",\"internalType\":\"uint256\"},{\"type\":\"string\",\"name\":\"_uri\",\"internalType\":\"string\"}],\"outputs\":[],\"stateMutability\":\"nonpayable\"},{\"type\":\"function\",\"name\":\"verifyClaim\",\"inputs\":[{\"type\":\"uint256\",\"name\":\"_conditionId\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"_claimer\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_quantity\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"_currency\",\"internalType\":\"address\"},{\"type\":\"uint256\",\"name\":\"_pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"tuple\",\"name\":\"_allowlistProof\",\"components\":[{\"type\":\"bytes32[]\",\"name\":\"proof\",\"internalType\":\"bytes32[]\"},{\"type\":\"uint256\",\"name\":\"quantityLimitPerWallet\",\"internalType\":\"uint256\"},{\"type\":\"uint256\",\"name\":\"pricePerToken\",\"internalType\":\"uint256\"},{\"type\":\"address\",\"name\":\"currency\",\"internalType\":\"address\"}],\"internalType\":\"structIDrop.AllowlistProof\"}],\"outputs\":[{\"type\":\"bool\",\"name\":\"isOverride\",\"internalType\":\"bool\"}],\"stateMutability\":\"view\"}]",
 }
 
 // DropERC721ABI is the input ABI used to generate the binding from.
@@ -261,6 +261,37 @@ func (_DropERC721 *DropERC721CallerSession) BalanceOf(owner common.Address) (*bi
 	return _DropERC721.Contract.BalanceOf(&_DropERC721.CallOpts, owner)
 }
 
+// BatchFrozen is a free data retrieval call binding the contract method 0x83040532.
+//
+// Solidity: function batchFrozen(uint256 ) view returns(bool)
+func (_DropERC721 *DropERC721Caller) BatchFrozen(opts *bind.CallOpts, arg0 *big.Int) (bool, error) {
+	var out []interface{}
+	err := _DropERC721.contract.Call(opts, &out, "batchFrozen", arg0)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// BatchFrozen is a free data retrieval call binding the contract method 0x83040532.
+//
+// Solidity: function batchFrozen(uint256 ) view returns(bool)
+func (_DropERC721 *DropERC721Session) BatchFrozen(arg0 *big.Int) (bool, error) {
+	return _DropERC721.Contract.BatchFrozen(&_DropERC721.CallOpts, arg0)
+}
+
+// BatchFrozen is a free data retrieval call binding the contract method 0x83040532.
+//
+// Solidity: function batchFrozen(uint256 ) view returns(bool)
+func (_DropERC721 *DropERC721CallerSession) BatchFrozen(arg0 *big.Int) (bool, error) {
+	return _DropERC721.Contract.BatchFrozen(&_DropERC721.CallOpts, arg0)
+}
+
 // ClaimCondition is a free data retrieval call binding the contract method 0xd637ed59.
 //
 // Solidity: function claimCondition() view returns(uint256 currentStartId, uint256 count)
@@ -337,10 +368,10 @@ func (_DropERC721 *DropERC721CallerSession) ContractType() ([32]byte, error) {
 	return _DropERC721.Contract.ContractType(&_DropERC721.CallOpts)
 }
 
-// InternalContractURI is a free data retrieval call binding the contract method 0xe8a3d485.
+// ContractURI is a free data retrieval call binding the contract method 0xe8a3d485.
 //
 // Solidity: function contractURI() view returns(string)
-func (_DropERC721 *DropERC721Caller) InternalContractURI(opts *bind.CallOpts) (string, error) {
+func (_DropERC721 *DropERC721Caller) ContractURI(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
 	err := _DropERC721.contract.Call(opts, &out, "contractURI")
 
@@ -354,18 +385,18 @@ func (_DropERC721 *DropERC721Caller) InternalContractURI(opts *bind.CallOpts) (s
 
 }
 
-// InternalContractURI is a free data retrieval call binding the contract method 0xe8a3d485.
+// ContractURI is a free data retrieval call binding the contract method 0xe8a3d485.
 //
 // Solidity: function contractURI() view returns(string)
-func (_DropERC721 *DropERC721Session) InternalContractURI() (string, error) {
-	return _DropERC721.Contract.InternalContractURI(&_DropERC721.CallOpts)
+func (_DropERC721 *DropERC721Session) ContractURI() (string, error) {
+	return _DropERC721.Contract.ContractURI(&_DropERC721.CallOpts)
 }
 
-// InternalContractURI is a free data retrieval call binding the contract method 0xe8a3d485.
+// ContractURI is a free data retrieval call binding the contract method 0xe8a3d485.
 //
 // Solidity: function contractURI() view returns(string)
-func (_DropERC721 *DropERC721CallerSession) InternalContractURI() (string, error) {
-	return _DropERC721.Contract.InternalContractURI(&_DropERC721.CallOpts)
+func (_DropERC721 *DropERC721CallerSession) ContractURI() (string, error) {
+	return _DropERC721.Contract.ContractURI(&_DropERC721.CallOpts)
 }
 
 // ContractVersion is a free data retrieval call binding the contract method 0xa0a8e460.
@@ -648,6 +679,38 @@ func (_DropERC721 *DropERC721CallerSession) GetDefaultRoyaltyInfo() (common.Addr
 	return _DropERC721.Contract.GetDefaultRoyaltyInfo(&_DropERC721.CallOpts)
 }
 
+// GetFlatPlatformFeeInfo is a free data retrieval call binding the contract method 0xe57553da.
+//
+// Solidity: function getFlatPlatformFeeInfo() view returns(address, uint256)
+func (_DropERC721 *DropERC721Caller) GetFlatPlatformFeeInfo(opts *bind.CallOpts) (common.Address, *big.Int, error) {
+	var out []interface{}
+	err := _DropERC721.contract.Call(opts, &out, "getFlatPlatformFeeInfo")
+
+	if err != nil {
+		return *new(common.Address), *new(*big.Int), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	out1 := *abi.ConvertType(out[1], new(*big.Int)).(**big.Int)
+
+	return out0, out1, err
+
+}
+
+// GetFlatPlatformFeeInfo is a free data retrieval call binding the contract method 0xe57553da.
+//
+// Solidity: function getFlatPlatformFeeInfo() view returns(address, uint256)
+func (_DropERC721 *DropERC721Session) GetFlatPlatformFeeInfo() (common.Address, *big.Int, error) {
+	return _DropERC721.Contract.GetFlatPlatformFeeInfo(&_DropERC721.CallOpts)
+}
+
+// GetFlatPlatformFeeInfo is a free data retrieval call binding the contract method 0xe57553da.
+//
+// Solidity: function getFlatPlatformFeeInfo() view returns(address, uint256)
+func (_DropERC721 *DropERC721CallerSession) GetFlatPlatformFeeInfo() (common.Address, *big.Int, error) {
+	return _DropERC721.Contract.GetFlatPlatformFeeInfo(&_DropERC721.CallOpts)
+}
+
 // GetPlatformFeeInfo is a free data retrieval call binding the contract method 0xd45573f6.
 //
 // Solidity: function getPlatformFeeInfo() view returns(address, uint16)
@@ -678,6 +741,37 @@ func (_DropERC721 *DropERC721Session) GetPlatformFeeInfo() (common.Address, uint
 // Solidity: function getPlatformFeeInfo() view returns(address, uint16)
 func (_DropERC721 *DropERC721CallerSession) GetPlatformFeeInfo() (common.Address, uint16, error) {
 	return _DropERC721.Contract.GetPlatformFeeInfo(&_DropERC721.CallOpts)
+}
+
+// GetPlatformFeeType is a free data retrieval call binding the contract method 0xf28083c3.
+//
+// Solidity: function getPlatformFeeType() view returns(uint8)
+func (_DropERC721 *DropERC721Caller) GetPlatformFeeType(opts *bind.CallOpts) (uint8, error) {
+	var out []interface{}
+	err := _DropERC721.contract.Call(opts, &out, "getPlatformFeeType")
+
+	if err != nil {
+		return *new(uint8), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(uint8)).(*uint8)
+
+	return out0, err
+
+}
+
+// GetPlatformFeeType is a free data retrieval call binding the contract method 0xf28083c3.
+//
+// Solidity: function getPlatformFeeType() view returns(uint8)
+func (_DropERC721 *DropERC721Session) GetPlatformFeeType() (uint8, error) {
+	return _DropERC721.Contract.GetPlatformFeeType(&_DropERC721.CallOpts)
+}
+
+// GetPlatformFeeType is a free data retrieval call binding the contract method 0xf28083c3.
+//
+// Solidity: function getPlatformFeeType() view returns(uint8)
+func (_DropERC721 *DropERC721CallerSession) GetPlatformFeeType() (uint8, error) {
+	return _DropERC721.Contract.GetPlatformFeeType(&_DropERC721.CallOpts)
 }
 
 // GetRevealURI is a free data retrieval call binding the contract method 0x9fc4d68f.
@@ -1533,6 +1627,27 @@ func (_DropERC721 *DropERC721TransactorSession) Claim(_receiver common.Address, 
 	return _DropERC721.Contract.Claim(&_DropERC721.TransactOpts, _receiver, _quantity, _currency, _pricePerToken, _allowlistProof, _data)
 }
 
+// FreezeBatchBaseURI is a paid mutator transaction binding the contract method 0xa07ced9e.
+//
+// Solidity: function freezeBatchBaseURI(uint256 _index) returns()
+func (_DropERC721 *DropERC721Transactor) FreezeBatchBaseURI(opts *bind.TransactOpts, _index *big.Int) (*types.Transaction, error) {
+	return _DropERC721.contract.Transact(opts, "freezeBatchBaseURI", _index)
+}
+
+// FreezeBatchBaseURI is a paid mutator transaction binding the contract method 0xa07ced9e.
+//
+// Solidity: function freezeBatchBaseURI(uint256 _index) returns()
+func (_DropERC721 *DropERC721Session) FreezeBatchBaseURI(_index *big.Int) (*types.Transaction, error) {
+	return _DropERC721.Contract.FreezeBatchBaseURI(&_DropERC721.TransactOpts, _index)
+}
+
+// FreezeBatchBaseURI is a paid mutator transaction binding the contract method 0xa07ced9e.
+//
+// Solidity: function freezeBatchBaseURI(uint256 _index) returns()
+func (_DropERC721 *DropERC721TransactorSession) FreezeBatchBaseURI(_index *big.Int) (*types.Transaction, error) {
+	return _DropERC721.Contract.FreezeBatchBaseURI(&_DropERC721.TransactOpts, _index)
+}
+
 // GrantRole is a paid mutator transaction binding the contract method 0x2f2ff15d.
 //
 // Solidity: function grantRole(bytes32 role, address account) returns()
@@ -1703,23 +1818,23 @@ func (_DropERC721 *DropERC721TransactorSession) SafeTransferFrom(from common.Add
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
-// Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns()
-func (_DropERC721 *DropERC721Transactor) SafeTransferFrom0(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
-	return _DropERC721.contract.Transact(opts, "safeTransferFrom0", from, to, tokenId, data)
+// Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) returns()
+func (_DropERC721 *DropERC721Transactor) SafeTransferFrom0(opts *bind.TransactOpts, from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
+	return _DropERC721.contract.Transact(opts, "safeTransferFrom0", from, to, tokenId, _data)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
-// Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns()
-func (_DropERC721 *DropERC721Session) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
-	return _DropERC721.Contract.SafeTransferFrom0(&_DropERC721.TransactOpts, from, to, tokenId, data)
+// Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) returns()
+func (_DropERC721 *DropERC721Session) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
+	return _DropERC721.Contract.SafeTransferFrom0(&_DropERC721.TransactOpts, from, to, tokenId, _data)
 }
 
 // SafeTransferFrom0 is a paid mutator transaction binding the contract method 0xb88d4fde.
 //
-// Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) returns()
-func (_DropERC721 *DropERC721TransactorSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, data []byte) (*types.Transaction, error) {
-	return _DropERC721.Contract.SafeTransferFrom0(&_DropERC721.TransactOpts, from, to, tokenId, data)
+// Solidity: function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) returns()
+func (_DropERC721 *DropERC721TransactorSession) SafeTransferFrom0(from common.Address, to common.Address, tokenId *big.Int, _data []byte) (*types.Transaction, error) {
+	return _DropERC721.Contract.SafeTransferFrom0(&_DropERC721.TransactOpts, from, to, tokenId, _data)
 }
 
 // SetApprovalForAll is a paid mutator transaction binding the contract method 0xa22cb465.
@@ -1806,6 +1921,27 @@ func (_DropERC721 *DropERC721TransactorSession) SetDefaultRoyaltyInfo(_royaltyRe
 	return _DropERC721.Contract.SetDefaultRoyaltyInfo(&_DropERC721.TransactOpts, _royaltyRecipient, _royaltyBps)
 }
 
+// SetFlatPlatformFeeInfo is a paid mutator transaction binding the contract method 0x7e54523c.
+//
+// Solidity: function setFlatPlatformFeeInfo(address _platformFeeRecipient, uint256 _flatFee) returns()
+func (_DropERC721 *DropERC721Transactor) SetFlatPlatformFeeInfo(opts *bind.TransactOpts, _platformFeeRecipient common.Address, _flatFee *big.Int) (*types.Transaction, error) {
+	return _DropERC721.contract.Transact(opts, "setFlatPlatformFeeInfo", _platformFeeRecipient, _flatFee)
+}
+
+// SetFlatPlatformFeeInfo is a paid mutator transaction binding the contract method 0x7e54523c.
+//
+// Solidity: function setFlatPlatformFeeInfo(address _platformFeeRecipient, uint256 _flatFee) returns()
+func (_DropERC721 *DropERC721Session) SetFlatPlatformFeeInfo(_platformFeeRecipient common.Address, _flatFee *big.Int) (*types.Transaction, error) {
+	return _DropERC721.Contract.SetFlatPlatformFeeInfo(&_DropERC721.TransactOpts, _platformFeeRecipient, _flatFee)
+}
+
+// SetFlatPlatformFeeInfo is a paid mutator transaction binding the contract method 0x7e54523c.
+//
+// Solidity: function setFlatPlatformFeeInfo(address _platformFeeRecipient, uint256 _flatFee) returns()
+func (_DropERC721 *DropERC721TransactorSession) SetFlatPlatformFeeInfo(_platformFeeRecipient common.Address, _flatFee *big.Int) (*types.Transaction, error) {
+	return _DropERC721.Contract.SetFlatPlatformFeeInfo(&_DropERC721.TransactOpts, _platformFeeRecipient, _flatFee)
+}
+
 // SetMaxTotalSupply is a paid mutator transaction binding the contract method 0x3f3e4c11.
 //
 // Solidity: function setMaxTotalSupply(uint256 _maxTotalSupply) returns()
@@ -1869,6 +2005,27 @@ func (_DropERC721 *DropERC721TransactorSession) SetPlatformFeeInfo(_platformFeeR
 	return _DropERC721.Contract.SetPlatformFeeInfo(&_DropERC721.TransactOpts, _platformFeeRecipient, _platformFeeBps)
 }
 
+// SetPlatformFeeType is a paid mutator transaction binding the contract method 0xb6f10c79.
+//
+// Solidity: function setPlatformFeeType(uint8 _feeType) returns()
+func (_DropERC721 *DropERC721Transactor) SetPlatformFeeType(opts *bind.TransactOpts, _feeType uint8) (*types.Transaction, error) {
+	return _DropERC721.contract.Transact(opts, "setPlatformFeeType", _feeType)
+}
+
+// SetPlatformFeeType is a paid mutator transaction binding the contract method 0xb6f10c79.
+//
+// Solidity: function setPlatformFeeType(uint8 _feeType) returns()
+func (_DropERC721 *DropERC721Session) SetPlatformFeeType(_feeType uint8) (*types.Transaction, error) {
+	return _DropERC721.Contract.SetPlatformFeeType(&_DropERC721.TransactOpts, _feeType)
+}
+
+// SetPlatformFeeType is a paid mutator transaction binding the contract method 0xb6f10c79.
+//
+// Solidity: function setPlatformFeeType(uint8 _feeType) returns()
+func (_DropERC721 *DropERC721TransactorSession) SetPlatformFeeType(_feeType uint8) (*types.Transaction, error) {
+	return _DropERC721.Contract.SetPlatformFeeType(&_DropERC721.TransactOpts, _feeType)
+}
+
 // SetPrimarySaleRecipient is a paid mutator transaction binding the contract method 0x6f4f2837.
 //
 // Solidity: function setPrimarySaleRecipient(address _saleRecipient) returns()
@@ -1930,6 +2087,27 @@ func (_DropERC721 *DropERC721Session) TransferFrom(from common.Address, to commo
 // Solidity: function transferFrom(address from, address to, uint256 tokenId) returns()
 func (_DropERC721 *DropERC721TransactorSession) TransferFrom(from common.Address, to common.Address, tokenId *big.Int) (*types.Transaction, error) {
 	return _DropERC721.Contract.TransferFrom(&_DropERC721.TransactOpts, from, to, tokenId)
+}
+
+// UpdateBatchBaseURI is a paid mutator transaction binding the contract method 0xde903ddd.
+//
+// Solidity: function updateBatchBaseURI(uint256 _index, string _uri) returns()
+func (_DropERC721 *DropERC721Transactor) UpdateBatchBaseURI(opts *bind.TransactOpts, _index *big.Int, _uri string) (*types.Transaction, error) {
+	return _DropERC721.contract.Transact(opts, "updateBatchBaseURI", _index, _uri)
+}
+
+// UpdateBatchBaseURI is a paid mutator transaction binding the contract method 0xde903ddd.
+//
+// Solidity: function updateBatchBaseURI(uint256 _index, string _uri) returns()
+func (_DropERC721 *DropERC721Session) UpdateBatchBaseURI(_index *big.Int, _uri string) (*types.Transaction, error) {
+	return _DropERC721.Contract.UpdateBatchBaseURI(&_DropERC721.TransactOpts, _index, _uri)
+}
+
+// UpdateBatchBaseURI is a paid mutator transaction binding the contract method 0xde903ddd.
+//
+// Solidity: function updateBatchBaseURI(uint256 _index, string _uri) returns()
+func (_DropERC721 *DropERC721TransactorSession) UpdateBatchBaseURI(_index *big.Int, _uri string) (*types.Transaction, error) {
+	return _DropERC721.Contract.UpdateBatchBaseURI(&_DropERC721.TransactOpts, _index, _uri)
 }
 
 // DropERC721ApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the DropERC721 contract.
@@ -2242,6 +2420,141 @@ func (_DropERC721 *DropERC721Filterer) WatchApprovalForAll(opts *bind.WatchOpts,
 func (_DropERC721 *DropERC721Filterer) ParseApprovalForAll(log types.Log) (*DropERC721ApprovalForAll, error) {
 	event := new(DropERC721ApprovalForAll)
 	if err := _DropERC721.contract.UnpackLog(event, "ApprovalForAll", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// DropERC721BatchMetadataUpdateIterator is returned from FilterBatchMetadataUpdate and is used to iterate over the raw logs and unpacked data for BatchMetadataUpdate events raised by the DropERC721 contract.
+type DropERC721BatchMetadataUpdateIterator struct {
+	Event *DropERC721BatchMetadataUpdate // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *DropERC721BatchMetadataUpdateIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(DropERC721BatchMetadataUpdate)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(DropERC721BatchMetadataUpdate)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *DropERC721BatchMetadataUpdateIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *DropERC721BatchMetadataUpdateIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// DropERC721BatchMetadataUpdate represents a BatchMetadataUpdate event raised by the DropERC721 contract.
+type DropERC721BatchMetadataUpdate struct {
+	FromTokenId *big.Int
+	ToTokenId   *big.Int
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterBatchMetadataUpdate is a free log retrieval operation binding the contract event 0x6bd5c950a8d8df17f772f5af37cb3655737899cbf903264b9795592da439661c.
+//
+// Solidity: event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId)
+func (_DropERC721 *DropERC721Filterer) FilterBatchMetadataUpdate(opts *bind.FilterOpts) (*DropERC721BatchMetadataUpdateIterator, error) {
+
+	logs, sub, err := _DropERC721.contract.FilterLogs(opts, "BatchMetadataUpdate")
+	if err != nil {
+		return nil, err
+	}
+	return &DropERC721BatchMetadataUpdateIterator{contract: _DropERC721.contract, event: "BatchMetadataUpdate", logs: logs, sub: sub}, nil
+}
+
+// WatchBatchMetadataUpdate is a free log subscription operation binding the contract event 0x6bd5c950a8d8df17f772f5af37cb3655737899cbf903264b9795592da439661c.
+//
+// Solidity: event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId)
+func (_DropERC721 *DropERC721Filterer) WatchBatchMetadataUpdate(opts *bind.WatchOpts, sink chan<- *DropERC721BatchMetadataUpdate) (event.Subscription, error) {
+
+	logs, sub, err := _DropERC721.contract.WatchLogs(opts, "BatchMetadataUpdate")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(DropERC721BatchMetadataUpdate)
+				if err := _DropERC721.contract.UnpackLog(event, "BatchMetadataUpdate", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseBatchMetadataUpdate is a log parse operation binding the contract event 0x6bd5c950a8d8df17f772f5af37cb3655737899cbf903264b9795592da439661c.
+//
+// Solidity: event BatchMetadataUpdate(uint256 _fromTokenId, uint256 _toTokenId)
+func (_DropERC721 *DropERC721Filterer) ParseBatchMetadataUpdate(log types.Log) (*DropERC721BatchMetadataUpdate, error) {
+	event := new(DropERC721BatchMetadataUpdate)
+	if err := _DropERC721.contract.UnpackLog(event, "BatchMetadataUpdate", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -2663,6 +2976,141 @@ func (_DropERC721 *DropERC721Filterer) ParseDefaultRoyalty(log types.Log) (*Drop
 	return event, nil
 }
 
+// DropERC721FlatPlatformFeeUpdatedIterator is returned from FilterFlatPlatformFeeUpdated and is used to iterate over the raw logs and unpacked data for FlatPlatformFeeUpdated events raised by the DropERC721 contract.
+type DropERC721FlatPlatformFeeUpdatedIterator struct {
+	Event *DropERC721FlatPlatformFeeUpdated // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *DropERC721FlatPlatformFeeUpdatedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(DropERC721FlatPlatformFeeUpdated)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(DropERC721FlatPlatformFeeUpdated)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *DropERC721FlatPlatformFeeUpdatedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *DropERC721FlatPlatformFeeUpdatedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// DropERC721FlatPlatformFeeUpdated represents a FlatPlatformFeeUpdated event raised by the DropERC721 contract.
+type DropERC721FlatPlatformFeeUpdated struct {
+	PlatformFeeRecipient common.Address
+	FlatFee              *big.Int
+	Raw                  types.Log // Blockchain specific contextual infos
+}
+
+// FilterFlatPlatformFeeUpdated is a free log retrieval operation binding the contract event 0xf8086cee80709bd44c82f89dbca54115ebd05e840a88ab81df9cf5be9754eb63.
+//
+// Solidity: event FlatPlatformFeeUpdated(address platformFeeRecipient, uint256 flatFee)
+func (_DropERC721 *DropERC721Filterer) FilterFlatPlatformFeeUpdated(opts *bind.FilterOpts) (*DropERC721FlatPlatformFeeUpdatedIterator, error) {
+
+	logs, sub, err := _DropERC721.contract.FilterLogs(opts, "FlatPlatformFeeUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return &DropERC721FlatPlatformFeeUpdatedIterator{contract: _DropERC721.contract, event: "FlatPlatformFeeUpdated", logs: logs, sub: sub}, nil
+}
+
+// WatchFlatPlatformFeeUpdated is a free log subscription operation binding the contract event 0xf8086cee80709bd44c82f89dbca54115ebd05e840a88ab81df9cf5be9754eb63.
+//
+// Solidity: event FlatPlatformFeeUpdated(address platformFeeRecipient, uint256 flatFee)
+func (_DropERC721 *DropERC721Filterer) WatchFlatPlatformFeeUpdated(opts *bind.WatchOpts, sink chan<- *DropERC721FlatPlatformFeeUpdated) (event.Subscription, error) {
+
+	logs, sub, err := _DropERC721.contract.WatchLogs(opts, "FlatPlatformFeeUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(DropERC721FlatPlatformFeeUpdated)
+				if err := _DropERC721.contract.UnpackLog(event, "FlatPlatformFeeUpdated", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseFlatPlatformFeeUpdated is a log parse operation binding the contract event 0xf8086cee80709bd44c82f89dbca54115ebd05e840a88ab81df9cf5be9754eb63.
+//
+// Solidity: event FlatPlatformFeeUpdated(address platformFeeRecipient, uint256 flatFee)
+func (_DropERC721 *DropERC721Filterer) ParseFlatPlatformFeeUpdated(log types.Log) (*DropERC721FlatPlatformFeeUpdated, error) {
+	event := new(DropERC721FlatPlatformFeeUpdated)
+	if err := _DropERC721.contract.UnpackLog(event, "FlatPlatformFeeUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // DropERC721InitializedIterator is returned from FilterInitialized and is used to iterate over the raw logs and unpacked data for Initialized events raised by the DropERC721 contract.
 type DropERC721InitializedIterator struct {
 	Event *DropERC721Initialized // Event containing the contract specifics and raw log
@@ -2925,6 +3373,139 @@ func (_DropERC721 *DropERC721Filterer) WatchMaxTotalSupplyUpdated(opts *bind.Wat
 func (_DropERC721 *DropERC721Filterer) ParseMaxTotalSupplyUpdated(log types.Log) (*DropERC721MaxTotalSupplyUpdated, error) {
 	event := new(DropERC721MaxTotalSupplyUpdated)
 	if err := _DropERC721.contract.UnpackLog(event, "MaxTotalSupplyUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// DropERC721MetadataFrozenIterator is returned from FilterMetadataFrozen and is used to iterate over the raw logs and unpacked data for MetadataFrozen events raised by the DropERC721 contract.
+type DropERC721MetadataFrozenIterator struct {
+	Event *DropERC721MetadataFrozen // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *DropERC721MetadataFrozenIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(DropERC721MetadataFrozen)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(DropERC721MetadataFrozen)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *DropERC721MetadataFrozenIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *DropERC721MetadataFrozenIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// DropERC721MetadataFrozen represents a MetadataFrozen event raised by the DropERC721 contract.
+type DropERC721MetadataFrozen struct {
+	Raw types.Log // Blockchain specific contextual infos
+}
+
+// FilterMetadataFrozen is a free log retrieval operation binding the contract event 0xeef043febddf4e1d1cf1f72ff1407b84e036e805aa0934418cb82095da8d7164.
+//
+// Solidity: event MetadataFrozen()
+func (_DropERC721 *DropERC721Filterer) FilterMetadataFrozen(opts *bind.FilterOpts) (*DropERC721MetadataFrozenIterator, error) {
+
+	logs, sub, err := _DropERC721.contract.FilterLogs(opts, "MetadataFrozen")
+	if err != nil {
+		return nil, err
+	}
+	return &DropERC721MetadataFrozenIterator{contract: _DropERC721.contract, event: "MetadataFrozen", logs: logs, sub: sub}, nil
+}
+
+// WatchMetadataFrozen is a free log subscription operation binding the contract event 0xeef043febddf4e1d1cf1f72ff1407b84e036e805aa0934418cb82095da8d7164.
+//
+// Solidity: event MetadataFrozen()
+func (_DropERC721 *DropERC721Filterer) WatchMetadataFrozen(opts *bind.WatchOpts, sink chan<- *DropERC721MetadataFrozen) (event.Subscription, error) {
+
+	logs, sub, err := _DropERC721.contract.WatchLogs(opts, "MetadataFrozen")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(DropERC721MetadataFrozen)
+				if err := _DropERC721.contract.UnpackLog(event, "MetadataFrozen", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseMetadataFrozen is a log parse operation binding the contract event 0xeef043febddf4e1d1cf1f72ff1407b84e036e805aa0934418cb82095da8d7164.
+//
+// Solidity: event MetadataFrozen()
+func (_DropERC721 *DropERC721Filterer) ParseMetadataFrozen(log types.Log) (*DropERC721MetadataFrozen, error) {
+	event := new(DropERC721MetadataFrozen)
+	if err := _DropERC721.contract.UnpackLog(event, "MetadataFrozen", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
@@ -3223,6 +3804,140 @@ func (_DropERC721 *DropERC721Filterer) WatchPlatformFeeInfoUpdated(opts *bind.Wa
 func (_DropERC721 *DropERC721Filterer) ParsePlatformFeeInfoUpdated(log types.Log) (*DropERC721PlatformFeeInfoUpdated, error) {
 	event := new(DropERC721PlatformFeeInfoUpdated)
 	if err := _DropERC721.contract.UnpackLog(event, "PlatformFeeInfoUpdated", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// DropERC721PlatformFeeTypeUpdatedIterator is returned from FilterPlatformFeeTypeUpdated and is used to iterate over the raw logs and unpacked data for PlatformFeeTypeUpdated events raised by the DropERC721 contract.
+type DropERC721PlatformFeeTypeUpdatedIterator struct {
+	Event *DropERC721PlatformFeeTypeUpdated // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *DropERC721PlatformFeeTypeUpdatedIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(DropERC721PlatformFeeTypeUpdated)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(DropERC721PlatformFeeTypeUpdated)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *DropERC721PlatformFeeTypeUpdatedIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *DropERC721PlatformFeeTypeUpdatedIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// DropERC721PlatformFeeTypeUpdated represents a PlatformFeeTypeUpdated event raised by the DropERC721 contract.
+type DropERC721PlatformFeeTypeUpdated struct {
+	FeeType uint8
+	Raw     types.Log // Blockchain specific contextual infos
+}
+
+// FilterPlatformFeeTypeUpdated is a free log retrieval operation binding the contract event 0xd246da9440709ce0dd3f4fd669abc85ada012ab9774b8ecdcc5059ba1486b9c1.
+//
+// Solidity: event PlatformFeeTypeUpdated(uint8 feeType)
+func (_DropERC721 *DropERC721Filterer) FilterPlatformFeeTypeUpdated(opts *bind.FilterOpts) (*DropERC721PlatformFeeTypeUpdatedIterator, error) {
+
+	logs, sub, err := _DropERC721.contract.FilterLogs(opts, "PlatformFeeTypeUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return &DropERC721PlatformFeeTypeUpdatedIterator{contract: _DropERC721.contract, event: "PlatformFeeTypeUpdated", logs: logs, sub: sub}, nil
+}
+
+// WatchPlatformFeeTypeUpdated is a free log subscription operation binding the contract event 0xd246da9440709ce0dd3f4fd669abc85ada012ab9774b8ecdcc5059ba1486b9c1.
+//
+// Solidity: event PlatformFeeTypeUpdated(uint8 feeType)
+func (_DropERC721 *DropERC721Filterer) WatchPlatformFeeTypeUpdated(opts *bind.WatchOpts, sink chan<- *DropERC721PlatformFeeTypeUpdated) (event.Subscription, error) {
+
+	logs, sub, err := _DropERC721.contract.WatchLogs(opts, "PlatformFeeTypeUpdated")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(DropERC721PlatformFeeTypeUpdated)
+				if err := _DropERC721.contract.UnpackLog(event, "PlatformFeeTypeUpdated", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParsePlatformFeeTypeUpdated is a log parse operation binding the contract event 0xd246da9440709ce0dd3f4fd669abc85ada012ab9774b8ecdcc5059ba1486b9c1.
+//
+// Solidity: event PlatformFeeTypeUpdated(uint8 feeType)
+func (_DropERC721 *DropERC721Filterer) ParsePlatformFeeTypeUpdated(log types.Log) (*DropERC721PlatformFeeTypeUpdated, error) {
+	event := new(DropERC721PlatformFeeTypeUpdated)
+	if err := _DropERC721.contract.UnpackLog(event, "PlatformFeeTypeUpdated", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

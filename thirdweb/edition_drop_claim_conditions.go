@@ -127,7 +127,7 @@ func (claim *EditionDropClaimConditions) GetAll(ctx context.Context, tokenId int
 }
 
 func (claim *EditionDropClaimConditions) GetMerkleMetadata(ctx context.Context) (*map[string]string, error) {
-	uri, err := claim.abi.InternalContractURI(&bind.CallOpts{Context: ctx})
+	uri, err := claim.abi.ContractURI(&bind.CallOpts{Context: ctx})
 	if err != nil {
 		return nil, err
 	}

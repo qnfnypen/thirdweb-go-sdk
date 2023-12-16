@@ -143,7 +143,7 @@ func (claim *NFTDropClaimConditions) GetAll(ctx context.Context) ([]*ClaimCondit
 }
 
 func (claim *NFTDropClaimConditions) getMerkleMetadata(ctx context.Context) (*map[string]string, error) {
-	uri, err := claim.abi.InternalContractURI(&bind.CallOpts{Context: ctx})
+	uri, err := claim.abi.ContractURI(&bind.CallOpts{Context: ctx})
 	if err != nil {
 		return nil, err
 	}

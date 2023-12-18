@@ -198,7 +198,8 @@ func getNativeTokenByChainId(chainId ChainID) (*NativeToken, error) {
 // CONTRACT ADDRESSES BY CHAIN ID
 
 const twRegistryAddress = "0x7c487845f98938Bb955B1D5AD069d9a30e4131fd"
-const twFactoryAddress = "0x5DBC7B840baa9daBcBe9D2492E45D7244B54A2A0"
+// const twFactoryAddress = "0x5DBC7B840baa9daBcBe9D2492E45D7244B54A2A0"
+const twFactoryAddress = "0x76F948E5F13B9A84A81E5681df8682BBf524805E"
 const ozDefenderForwarderAddress = "0xc82BbE41f2cF04e3a8efA18F7032BDD7f6d98a81"
 
 func getContractAddressByChainId(chainId ChainID, contractName string) (string, error) {

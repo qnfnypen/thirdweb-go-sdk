@@ -199,6 +199,7 @@ func getNativeTokenByChainId(chainId ChainID) (*NativeToken, error) {
 
 const twRegistryAddress = "0x7c487845f98938Bb955B1D5AD069d9a30e4131fd"
 const twFactoryAddress = "0x5DBC7B840baa9daBcBe9D2492E45D7244B54A2A0"
+
 // const twFactoryAddress = "0x76F948E5F13B9A84A81E5681df8682BBf524805E"
 const ozDefenderForwarderAddress = "0xc82BbE41f2cF04e3a8efA18F7032BDD7f6d98a81"
 
@@ -220,7 +221,7 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 		}
 	case GOERLI:
 		addresses = map[string]string{
-			"BiconomyForwarder": "0x5001A14CA6163143316a7C614e30e6041033Ac20",
+			"BiconomyForwarder": "0xE041608922d06a4F26C0d4c27d8bCD01daf1f792",
 			"TWFactory":         twFactoryAddress,
 			"TWRegistry":        twRegistryAddress,
 		}
@@ -251,7 +252,7 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 	case FANTOM:
 		addresses = map[string]string{
 			"BiconomyForwarder": "0x64CD353384109423a966dCd3Aa30D884C9b2E057",
-			"TWFactory":         twFactoryAddress,
+			"TWFactory":         "0x97EA0Fcc552D5A8Fb5e9101316AAd0D62Ea0876B",
 			"TWRegistry":        twRegistryAddress,
 		}
 	case FANTOM_TESTNET:
@@ -264,7 +265,7 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 		addresses = map[string]string{
 			"BiconomyForwarder": "0xfe0fa3C06d03bDC7fb49c892BbB39113B534fB57",
 			"TWFactory":         "0xd24b3de085CFd8c54b94feAD08a7962D343E6DE0",
-			"TWRegistry":        "0x7c487845f98938Bb955B1D5AD069d9a30e4131fd",
+			"TWRegistry":        twRegistryAddress,
 		}
 	case ARBITRUM_TESTNET:
 		addresses = map[string]string{
@@ -276,13 +277,13 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 		addresses = map[string]string{
 			"BiconomyForwarder": "0xefba8a2a82ec1fb1273806174f5e28fbb917cf95",
 			"TWFactory":         "0xd24b3de085CFd8c54b94feAD08a7962D343E6DE0",
-			"TWRegistry":        "0x7c487845f98938Bb955B1D5AD069d9a30e4131fd",
+			"TWRegistry":        twRegistryAddress,
 		}
 	case OPTIMISM_TESTNET:
 		addresses = map[string]string{
 			"BiconomyForwarder": zeroAddress,
 			"TWFactory":         "0xd24b3de085CFd8c54b94feAD08a7962D343E6DE0",
-			"TWRegistry":        "0x7c487845f98938Bb955B1D5AD069d9a30e4131fd",
+			"TWRegistry":        twRegistryAddress,
 		}
 	default:
 		return "", errors.New("Unsupported chain id")

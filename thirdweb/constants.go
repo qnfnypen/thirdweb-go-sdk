@@ -233,9 +233,10 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 		}
 	case MUMBAI:
 		addresses = map[string]string{
-			"BiconomyForwarder": "0x9399BB24DBB5C4b782C70c2969F58716Ebbd6a3b",
-			"TWFactory":         twFactoryAddress,
-			"TWRegistry":        twRegistryAddress,
+			// "BiconomyForwarder": "0x9399BB24DBB5C4b782C70c2969F58716Ebbd6a3b",
+			"BiconomyForwarder": "0x5B44408A4bBc40Fd66E21b08244aD6ef3962029B",
+			"TWFactory":         "0x0e2306Ad818749E392176aC1e4240c6ac922C6b1",
+			"TWRegistry":        "0x0D8aeF71d7BD5653bd2b4dEf17c914703d3eFaF5",
 		}
 	case AVALANCHE:
 		addresses = map[string]string{

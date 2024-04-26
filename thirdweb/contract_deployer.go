@@ -38,6 +38,7 @@ import (
 type ContractDeployer struct {
 	*ProviderHandler
 	factory *abi.TWFactory
+	// statelessFactory *abi.TWStatelessFactory
 	helper  *contractHelper
 	storage storage
 }
@@ -53,7 +54,12 @@ func newContractDeployer(provider *ethclient.Client, privateKey string, storage 
 		return nil, err
 	}
 
+	if chainId.Int64() == SEPOLIA || chainId.Int64() == MUMBAI {
+
+	}
+
 	factoryAddress, err := getContractAddressByChainId(ChainID(chainId.Int64()), "TWFactory")
+	// statelessfactoryAddress, err := getContractAddressByChainId(ChainID(chainId.Int64()), "TWStatelessFactory")
 	if err == nil {
 		factory, err := abi.NewTWFactory(common.HexToAddress(factoryAddress), provider)
 		if err != nil {

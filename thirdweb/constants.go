@@ -24,6 +24,7 @@ const (
 	MAINNET           ChainID = 1
 	RINKEBY                   = 4
 	GOERLI                    = 5
+	SEPOLIA                   = 11155111
 	POLYGON                   = 137
 	FANTOM                    = 250
 	FANTOM_TESTNET            = 4002
@@ -67,6 +68,17 @@ func getNativeTokenByChainId(chainId ChainID) (*NativeToken, error) {
 			18,
 			&WrappedToken{
 				"0x0bb7509324ce409f7bbc4b701f932eaca9736ab7",
+				"Wrapped Ether",
+				"WETH",
+			},
+		}, nil
+	case SEPOLIA:
+		return &NativeToken{
+			"Ether",
+			"ETH",
+			18,
+			&WrappedToken{
+				"0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
 				"Wrapped Ether",
 				"WETH",
 			},
@@ -225,6 +237,13 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 			"TWFactory":         twFactoryAddress,
 			"TWRegistry":        twRegistryAddress,
 		}
+	case SEPOLIA:
+		addresses = map[string]string{
+			"BiconomyForwarder":  "0xB79B22f66ED21f226720087E82fbE2b544869DEB",
+			"TWFactory":          "0x7D58560196Dc564d63a07abb659D19b25c7594A5",
+			"TWStatelessFactory": "0xd4c837e80fDA233F0a5d14D2b116C6A26cb7Bc80",
+			"TWRegistry":         "0x8eeC22AEd54921f31b29c0d2cfdA2064974A6019",
+		}
 	case POLYGON:
 		addresses = map[string]string{
 			"BiconomyForwarder": "0x86C80a8aa58e0A4fa09A69624c31Ab2a6CAD56b8",
@@ -233,10 +252,9 @@ func getContractAddressByChainId(chainId ChainID, contractName string) (string, 
 		}
 	case MUMBAI:
 		addresses = map[string]string{
-			// "BiconomyForwarder": "0x9399BB24DBB5C4b782C70c2969F58716Ebbd6a3b",
-			"BiconomyForwarder": "0x5B44408A4bBc40Fd66E21b08244aD6ef3962029B",
-			"TWFactory":         "0x0e2306Ad818749E392176aC1e4240c6ac922C6b1",
-			"TWRegistry":        "0x0D8aeF71d7BD5653bd2b4dEf17c914703d3eFaF5",
+			"BiconomyForwarder": "0x9399BB24DBB5C4b782C70c2969F58716Ebbd6a3b",
+			"TWFactory":         twFactoryAddress,
+			"TWRegistry":        twRegistryAddress,
 		}
 	case AVALANCHE:
 		addresses = map[string]string{
